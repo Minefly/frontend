@@ -2,7 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
+/* h1 {
 	font-size: 3rem;
 	font-weight: bold;
+} */
+
+@layer components {
+	button.btn {
+		@apply px-4 py-2 m-3 rounded-md font-bold ring-opacity-100 focus:outline-none focus:ring;
+	}
+
+	button.btn--outlined {
+		@apply border-2 border-gray-300 ring-gray-200;
+	}
+
+	button.btn--white {
+		@apply bg-gray-100 text-gray-900 ring-gray-200;
+	}
+
+	button.btn--black {
+		@apply bg-gray-900 text-white ring-gray-600;
+	}
+
+	button.btn--yellow {
+		@apply bg-yellow-400 text-white ring-yellow-300;
+	}
+
+	button.btn--green {
+		@apply bg-green-600 text-white ring-green-300;
+	}
+
+	button.btn--indigo {
+		@apply bg-indigo-600 text-white ring-indigo-300;
+	}
+
+	button.btn--blue {
+		@apply bg-blue-600 text-white ring-blue-300;
+	}
+
+	button.btn--purple {
+		@apply bg-purple-600 text-white ring-purple-300;
+	}
+
+	button.btn--pink {
+		@apply bg-pink-600 text-white ring-pink-300;
+	}
 }

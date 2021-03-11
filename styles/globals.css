@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+
 /* h1 {
 	font-size: 3rem;
 	font-weight: bold;
@@ -9,7 +11,11 @@
 
 @layer components {
 	button.btn {
-		@apply px-4 py-2 m-3 rounded-md font-bold shadow-md focus:outline-none focus:ring;
+		@apply px-4 py-2 rounded-md font-bold shadow-md focus:outline-none focus:ring;
+	}
+
+	button.btn-big {
+		@apply text-lg px-6 py-4 rounded-xl;
 	}
 
 	button.btn-outlined.btn--white {
@@ -66,5 +72,14 @@
 
 	button.btn-filled.btn--pink {
 		@apply bg-gradient-to-br from-pink-500 to-pink-700 text-white ring-pink-300 dark:ring-pink-800;
+	}
+
+	.banner-img {
+		@apply absolute z-0 top-0 left-0 bg-cover w-screen h-full;
+		background-image: linear-gradient(
+				rgba(0, 23, 238, 0.63),
+				rgba(48, 0, 239, 0.4)
+			),
+			url("../public/trees.jpg");
 	}
 }

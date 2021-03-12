@@ -152,7 +152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^14.14.32":
+"@types/node@npm:^14.14.33":
   version: 14.14.33
   resolution: "@types/node@npm:14.14.33"
   checksum: f269fc728f6547345e000a0d86e1be802b475bb6759493208d7bc1cf8d49e838d3952ae54b8c7cd2ce168f9ef50c30e0d7084064a5f98db87efc833a38d955af
@@ -1856,11 +1856,11 @@ fsevents@~2.3.1:
   version: 0.0.0-use.local
   resolution: "minefly-frontend@workspace:."
   dependencies:
-    "@types/node": ^14.14.32
+    "@types/node": ^14.14.33
     "@types/react": ^17.0.3
     autoprefixer: ^10.2.5
     next: ^10.0.8
-    postcss: ^8.2.7
+    postcss: ^8.2.8
     react: ^17.0.1
     react-dom: ^17.0.1
     tailwindcss: ^2.0.3
@@ -2416,7 +2416,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.1.6, postcss@npm:^8.2.1, postcss@npm:^8.2.7":
+"postcss@npm:^8.1.6, postcss@npm:^8.2.1, postcss@npm:^8.2.8":
   version: 8.2.8
   resolution: "postcss@npm:8.2.8"
   dependencies:

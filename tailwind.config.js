@@ -7,34 +7,7 @@ module.exports = {
 		fontFamily: {
 			sans: ["Inter", "Roboto", "ui-sans-serif", "system-ui", "sans-serif"],
 		},
-		extend: {
-			typography: (theme) => ({
-				dark: {
-					css: [
-						{
-							h1: {
-								color: theme("colors.white"),
-							},
-							h2: {
-								color: theme("colors.white"),
-							},
-							h3: {
-								color: theme("colors.white"),
-							},
-							h4: {
-								color: theme("colors.white"),
-							},
-							h5: {
-								color: theme("colors.white"),
-							},
-							h6: {
-								color: theme("colors.white"),
-							},
-						},
-					],
-				},
-			}),
-		},
+		extend: {},
 		container: {
 			center: true,
 			padding: {
@@ -45,10 +18,6 @@ module.exports = {
 			},
 		},
 	},
-	variants: {
-		extend: {
-			typography: ["dark"],
-		},
-	},
-	plugins: [require("@tailwindcss/typography")],
+	variants: {},
+	plugins: [],
 };

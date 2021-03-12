@@ -19,15 +19,15 @@
 	}
 
 	button.btn-outlined {
-		@apply border-3 border-gray-100 text-gray-100 ring-gray-200 dark:ring-gray-500;
+		@apply border-3 border-gray-200 text-gray-200 ring-gray-200 dark:ring-gray-500;
 	}
 
 	button.btn-outlined-hover {
-		@apply border-3 border-gray-100 text-gray-100 ring-gray-200 dark:ring-gray-500;
-		transition: background 250ms, border 250ms;
+		@apply border-3 border-gray-200 text-gray-200 ring-gray-200 dark:ring-gray-500 transition-colors;
 	}
 
-	button.btn-outlined-hover:hover {
+	button.btn-outlined-hover:hover,
+	button.btn-outlined-hover:focus {
 		@apply bg-gray-200 text-gray-900 ring-gray-200 dark:ring-gray-400;
 	}
 
@@ -72,11 +72,38 @@
 	}
 
 	.banner-img {
-		@apply absolute z-0 top-0 left-0 bg-cover w-screen h-full;
+		@apply absolute z-0 top-0 left-0 bg-cover bg-top w-screen h-full opacity-0 transform translate-x-full transition-transform duration-700;
+	}
+
+	.banner-img.active {
+		@apply opacity-100 transform translate-x-0;
+	}
+
+	.banner-img.exiting {
+		@apply opacity-100 transform -translate-x-full;
+	}
+
+	.banner-img.img-1 {
 		background-image: linear-gradient(
 				rgba(0, 23, 238, 0.63),
 				rgba(48, 0, 239, 0.4)
 			),
 			url("../public/trees.jpg");
+	}
+
+	.banner-img.img-2 {
+		background-image: linear-gradient(
+				rgba(0, 23, 238, 0.63),
+				rgba(48, 0, 239, 0.4)
+			),
+			url("../public/trees2.png");
+	}
+
+	.banner-img.img-3 {
+		background-image: linear-gradient(
+				rgba(0, 23, 238, 0.63),
+				rgba(48, 0, 239, 0.4)
+			),
+			url("../public/trees3.png");
 	}
 }

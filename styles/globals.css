@@ -15,15 +15,20 @@
 	}
 
 	button.btn-big {
-		@apply text-lg px-9 py-4 rounded-xl;
+		@apply text-lg px-9 py-4 rounded-lg;
 	}
 
 	button.btn-outlined {
-		@apply border border-gray-100 text-gray-100 ring-gray-200 dark:ring-gray-500;
+		@apply border-3 border-gray-100 text-gray-100 ring-gray-200 dark:ring-gray-500;
 	}
 
-	button.btn-transparent {
-		@apply bg-gray-200 bg-opacity-75 text-gray-900 ring-gray-200 dark:ring-gray-400;
+	button.btn-outlined-hover {
+		@apply border-3 border-gray-100 text-gray-100 ring-gray-200 dark:ring-gray-500;
+		transition: background 250ms, border 250ms;
+	}
+
+	button.btn-outlined-hover:hover {
+		@apply bg-gray-200 text-gray-900 ring-gray-200 dark:ring-gray-400;
 	}
 
 	button.btn-filled {
@@ -38,8 +43,8 @@
 		@apply border border-primary-600 text-primary-600 ring-primary-300 dark:ring-primary-800;
 	}
 
-	button.btn-transparent.btn--primary {
-		@apply bg-primary-600 bg-opacity-90 shadow-none border-3 border-primary-700 text-white ring-primary-300 dark:ring-primary-800;
+	button.btn-outlined-hover.btn--primary:hover {
+		@apply border-primary-600 border-3 bg-primary-600 text-white ring-primary-300 dark:ring-primary-800;
 	}
 
 	button.btn-filled.btn--primary {
@@ -54,12 +59,12 @@
 		@apply border border-secondary-600 text-secondary-600 ring-secondary-300 dark:ring-secondary-800;
 	}
 
-	button.btn-transparent.btn--secondary {
-		@apply bg-secondary-600 bg-opacity-75 shadow-none border-3 border-secondary-700 text-white ring-secondary-300 dark:ring-secondary-800;
-	}
-
 	button.btn-filled.btn--secondary {
 		@apply bg-secondary-600 text-white ring-secondary-300 dark:ring-secondary-800;
+	}
+
+	button.btn-outlined-hover.btn--secondary:hover {
+		@apply border-secondary-600 border-3 bg-secondary-600 text-white ring-secondary-300 dark:ring-secondary-800;
 	}
 
 	button.btn-gradient.btn--secondary {

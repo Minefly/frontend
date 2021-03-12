@@ -10,7 +10,7 @@ const Home = () => {
 					<h1 className="text-3xl sm:text-5xl xl:text-7xl mb-4 text-primary-50">
 						Minecraft server hosting
 					</h1>
-					<button className="mt-4 btn btn-big btn-filled btn--primary">
+					<button className="mt-4 btn btn-big btn-outlined-hover btn--primary">
 						Get started
 					</button>
 				</div>

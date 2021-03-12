@@ -15,7 +15,7 @@
 	}
 
 	button.btn-big {
-		@apply text-lg px-6 py-4 rounded-xl;
+		@apply text-lg px-5 py-3 rounded-xl;
 	}
 
 	button.btn-outlined.btn--white {
@@ -26,11 +26,19 @@
 		@apply bg-gradient-to-br from-gray-100 to-gray-300 text-gray-900 ring-gray-200 dark:ring-gray-400;
 	}
 
+	button.btn-filled.btn-gradient.btn--white {
+		@apply bg-gray-200 text-gray-900 ring-gray-200 dark:ring-gray-400;
+	}
+
 	button.btn-outlined.btn--black {
 		@apply border border-gray-900 text-gray-900 ring-gray-700;
 	}
 
 	button.btn-filled.btn--black {
+		@apply bg-gray-900 text-white ring-gray-700;
+	}
+
+	button.btn-filled.btn-gradient.btn--black {
 		@apply bg-gradient-to-br from-gray-900 to-black text-white ring-gray-700;
 	}
 
@@ -39,6 +47,10 @@
 	}
 
 	button.btn-filled.btn--green {
+		@apply bg-green-600 text-white ring-green-300 dark:ring-green-800;
+	}
+
+	button.btn-filled.btn-gradient.btn--green {
 		@apply bg-gradient-to-br from-green-500 to-green-700 text-white ring-green-300 dark:ring-green-800;
 	}
 
@@ -47,6 +59,10 @@
 	}
 
 	button.btn-filled.btn--indigo {
+		@apply bg-indigo-600 text-white ring-indigo-300 dark:ring-indigo-800;
+	}
+
+	button.btn-filled.btn-gradient.btn--indigo {
 		@apply bg-gradient-to-br from-indigo-500 to-indigo-700 text-white ring-indigo-300 dark:ring-indigo-800;
 	}
 
@@ -55,6 +71,10 @@
 	}
 
 	button.btn-filled.btn--blue {
+		@apply bg-blue-600 text-white ring-blue-300 dark:ring-blue-800;
+	}
+
+	button.btn-filled.btn-gradient.btn--blue {
 		@apply bg-gradient-to-br from-blue-500 to-blue-700 text-white ring-blue-300 dark:ring-blue-800;
 	}
 
@@ -63,6 +83,10 @@
 	}
 
 	button.btn-filled.btn--purple {
+		@apply bg-purple-600 text-white ring-purple-300 dark:ring-purple-800;
+	}
+
+	button.btn-filled.btn-gradient.btn--purple {
 		@apply bg-gradient-to-br from-purple-500 to-purple-700 text-white ring-purple-300 dark:ring-purple-800;
 	}
 
@@ -71,6 +95,10 @@
 	}
 
 	button.btn-filled.btn--pink {
+		@apply bg-pink-600 text-white ring-pink-300 dark:ring-pink-800;
+	}
+
+	button.btn-filled.btn-gradient.btn--pink {
 		@apply bg-gradient-to-br from-pink-500 to-pink-700 text-white ring-pink-300 dark:ring-pink-800;
 	}
 

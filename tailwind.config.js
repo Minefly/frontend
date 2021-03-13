@@ -16,6 +16,9 @@ module.exports = {
 				primary: colors.indigo,
 				secondary: colors.pink,
 				violet: colors.violet,
+				gray: {
+					850: "#1b2332",
+				},
 			},
 			inset: {
 				"1/5": "20%",
@@ -34,6 +37,13 @@ module.exports = {
 			},
 			minWidth: {
 				200: "50rem",
+			},
+			zIndex: {
+				"-10": "-10",
+				"-20": "-20",
+				"-30": "-30",
+				"-40": "-40",
+				"-50": "-50",
 			},
 		},
 		borderWidth: {

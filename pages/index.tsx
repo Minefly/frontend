@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Card from "../components/card";
 
 const Home = () => {
 	const nOfImages = 3;
@@ -51,7 +52,37 @@ const Home = () => {
 					</button>
 				</div>
 			</div>
-			<div className="h-32 w-6/5 min-w-200 bg-gray-800 rounded-1/2 relative bottom-16 left-1/2 transform -translate-x-1/2"></div>
+			<div className="h-32 w-6/5 min-w-200 bg-white dark:bg-gray-800 rounded-1/2 relative bottom-16 left-1/2 transform -translate-x-1/2" />
+			<main className="relative bottom-28">
+				<div className="container md:w-auto md:px-0 md:max-w-none md:flex md:mx-4">
+					<Card
+						title="Completely Free"
+						className="my-8 md:flex-1 md:mx-4 md:my-0 text-center"
+						centered
+					>
+						All users have access to a free Minecraft server, no credit card or
+						payment required.
+					</Card>
+					<Card
+						title="Community First"
+						className="my-8 md:relative md:bottom-4 md:flex-1 md:mx-4 md:my-0 text-center"
+						centered
+					>
+						We value our community and strive to make our services the best they
+						can be for our users. We take user input seriously and consider all
+						your feedback.
+					</Card>
+					<Card
+						title="Quality Service"
+						className="my-8 md:flex-1 md:mx-4 md:my-0 text-center"
+						centered
+					>
+						Our servers are equipped with powerful processors and fast SSDs. We
+						also have a support team you can talk to in real-time if you're
+						having issues.
+					</Card>
+				</div>
+			</main>
 		</>
 	);
 };

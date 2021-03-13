@@ -4,6 +4,10 @@ module.exports = {
 	purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
 	darkMode: "media", // or 'media' or 'class'
 	theme: {
+		flexGrow: {
+			DEFAULT: 1,
+			2: 2,
+		},
 		fontFamily: {
 			sans: ["Inter", "Roboto", "ui-sans-serif", "system-ui", "sans-serif"],
 		},
@@ -11,6 +15,16 @@ module.exports = {
 			colors: {
 				primary: colors.indigo,
 				secondary: colors.pink,
+				violet: colors.violet,
+			},
+			inset: {
+				"1/5": "20%",
+				"2/5": "40%",
+				"3/5": "60%",
+				"4/5": "80%",
+			},
+			height: {
+				"11/10": "110vh",
 			},
 		},
 		borderWidth: {

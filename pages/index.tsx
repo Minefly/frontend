@@ -22,7 +22,7 @@ const Home = () => {
 
 	return (
 		<>
-			<div className="banner h-screen w-full relative">
+			<div className="banner w-full relative h-6/5">
 				<div className="banner-img-container">
 					<div
 						className={`banner-img img-1 ${currentImg === 1 ? "active" : ""} ${
@@ -40,28 +40,18 @@ const Home = () => {
 						}`}
 					/>
 				</div>
-				<div className="text-white font-extrabold max-w-none absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12 flex justify-center flex-col-reverse sm:flex-row">
-					<div className="flex-1 sm:flex-grow-2 flex flex-col justify-center">
-						<h1 className="text-4xl sm:text-5xl xl:text-7xl my-4 text-primary-50">
-							Free, high quality
-							<br />
-							Minecraft server hosting
-						</h1>
-						<button className="mt-4 btn btn-big btn-outlined-hover w-max">
-							Get started
-						</button>
-					</div>
-					<div className="flex-1 w-1/4 sm:w-max">
-						<img
-							className="object-contain"
-							src="./mineflyrocket.png"
-							alt="The Minefly Logo"
-						/>
-					</div>
+				<div className="text-white font-extrabold max-w-none absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12">
+					<h1 className="text-4xl sm:text-5xl xl:text-7xl my-4 text-primary-50">
+						Free, community-first
+						<br />
+						Minecraft server hosting
+					</h1>
+					<button className="mt-4 btn btn-big btn-outlined-hover w-max">
+						Get started
+					</button>
 				</div>
 			</div>
-			<img src="./wave.svg" className="absolute bottom-0" alt="" />
-			<div className="h-60 bg-violet-700"></div>
+			<div className="h-32 w-6/5 min-w-200 bg-gray-800 rounded-1/2 relative bottom-16 left-1/2 transform -translate-x-1/2"></div>
 		</>
 	);
 };

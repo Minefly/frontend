@@ -24,7 +24,16 @@ module.exports = {
 				"4/5": "80%",
 			},
 			height: {
-				"11/10": "110vh",
+				"6/5": "120vh",
+			},
+			width: {
+				"6/5": "120%",
+			},
+			borderRadius: {
+				"1/2": "50%",
+			},
+			minWidth: {
+				200: "50rem",
 			},
 		},
 		borderWidth: {

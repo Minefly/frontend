@@ -41,7 +41,7 @@ const Home = () => {
 						}`}
 					/>
 				</div>
-				<div className="text-white font-extrabold max-w-none absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12">
+				<div className="text-center sm:text-left text-white font-extrabold max-w-none absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12">
 					<h1 className="text-4xl sm:text-5xl xl:text-7xl my-4 text-primary-50">
 						Free, community-first
 						<br />
@@ -53,11 +53,11 @@ const Home = () => {
 				</div>
 			</div>
 			<div className="h-32 w-6/5 min-w-200 bg-white dark:bg-gray-800 rounded-1/2 relative bottom-16 left-1/2 transform -translate-x-1/2" />
-			<main className="relative bottom-28">
+			<main className="relative bottom-32">
 				<div className="container md:w-auto md:px-0 md:max-w-none md:flex md:mx-4">
 					<Card
 						title="Completely Free"
-						className="my-8 md:flex-1 md:mx-4 md:my-0 text-center"
+						className="mb-8 md:flex-1 md:mx-4 md:my-0 text-center"
 						centered
 					>
 						All users have access to a free Minecraft server, no credit card or
@@ -74,7 +74,7 @@ const Home = () => {
 					</Card>
 					<Card
 						title="Quality Service"
-						className="my-8 md:flex-1 md:mx-4 md:my-0 text-center"
+						className="mt-8 md:flex-1 md:mx-4 md:my-0 text-center"
 						centered
 					>
 						Our servers are equipped with powerful processors and fast SSDs. We

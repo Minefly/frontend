@@ -10,7 +10,7 @@ const Card = (props) => {
 					props.className
 				}
 			>
-				<h2 className="text-lg font-semibold mb-1">{title}</h2>
+				<h2 className="text-xl font-semibold mb-1">{title}</h2>
 				<p>{children}</p>
 			</div>
 		</>

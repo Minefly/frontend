@@ -58,7 +58,6 @@ const Home = () => {
 					<Card
 						title="Completely Free"
 						className="mb-8 md:flex-1 md:mx-4 md:my-0 text-center"
-						centered
 					>
 						All users have access to a free Minecraft server, no credit card or
 						payment required.
@@ -66,7 +65,6 @@ const Home = () => {
 					<Card
 						title="Community First"
 						className="my-8 md:relative md:bottom-4 md:flex-1 md:mx-4 md:my-0 text-center"
-						centered
 					>
 						We value our community and strive to make our services the best they
 						can be for our users. We take user input seriously and consider all
@@ -75,7 +73,6 @@ const Home = () => {
 					<Card
 						title="Quality Service"
 						className="mt-8 md:flex-1 md:mx-4 md:my-0 text-center"
-						centered
 					>
 						Our servers are equipped with powerful processors and fast SSDs. We
 						also have a support team you can talk to in real-time if you're

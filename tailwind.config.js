@@ -27,7 +27,7 @@ module.exports = {
 				"4/5": "80%",
 			},
 			height: {
-				"6/5": "120vh",
+				200: "50rem",
 			},
 			width: {
 				"6/5": "120%",
@@ -59,9 +59,9 @@ module.exports = {
 			center: true,
 			padding: {
 				DEFAULT: "3rem",
-				md: "10%",
-				lg: "15%",
-				xl: "25%",
+				// md: "10%",
+				xl: "12rem",
+				// xl: "25%",
 			},
 		},
 	},

@@ -1,45 +1,15 @@
 import { AppProps } from "next/app";
-
 import "../styles/globals.css";
+
+import Footer from "../components/footer";
 
 function App({ Component, pageProps }: AppProps) {
 	return (
-		<div className="root min-h-screen w-full dark:bg-gray-800 dark:text-white overflow-x-hidden overflow-y-visible">
-			<Component {...pageProps} />
-			<footer className="bg-gray-100 dark:bg-gray-850 w-full py-8">
-				<div className="h-32 w-6/5 min-w-200 bg-white dark:bg-gray-850 rounded-1/2 relative bottom-16 -mb-32 left-1/2 transform -translate-x-1/2" />
-				{/* <div className="container flex flex-col justify-between"> */}
-				<div className="container flex justify-center">
-					<a
-						href="https://discord.minefly.org/"
-						target="_blank"
-						className="relative w-16 h-16 rounded-1/2 bg-gray-300 dark:bg-gray-900 hover:bg-black focus:bg-black transition-colors focus:ring ring-black ring-offset-2 ring-offset-gray-850 mx-4"
-					>
-						<img
-							src="./discord-white.svg"
-							className="w-10 h-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-						/>
-					</a>
-					<a
-						href="https://twitter.com/MineflyHost"
-						target="_blank"
-						className="relative w-16 h-16 rounded-1/2 bg-gray-300 dark:bg-gray-900 hover:bg-black focus:bg-black transition-colors focus:ring ring-black ring-offset-2 ring-offset-gray-850 mx-4"
-					>
-						<img
-							src="./twitter-white.svg"
-							className="w-10 h-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-						/>
-					</a>
-				</div>
-				<div className="border border-gray-300 dark:border-gray-700 my-8" />
-				<div className="container text-center">
-					<h2>
-						&#169; Minefly 2021. <br />
-						All rights reserved.
-					</h2>
-				</div>
-				{/* </div> */}
-			</footer>
+		<div className="flex flex-wrap root min-h-screen w-full dark:bg-gray-800 dark:text-white overflow-x-hidden overflow-y-visible">
+			<div className="w-full">
+				<Component {...pageProps} />
+			</div>
+			<Footer />
 		</div>
 	);
 }

@@ -45,6 +45,13 @@ module.exports = {
 				"-40": "-40",
 				"-50": "-50",
 			},
+			transitionProperty: {
+				shape: "width, height",
+				spacing: "margin, padding",
+			},
+			padding: {
+				8.5: "2.125rem",
+			},
 		},
 		borderWidth: {
 			DEFAULT: "1px",

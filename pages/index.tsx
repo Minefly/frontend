@@ -41,20 +41,20 @@ const Home = () => {
 						}`}
 					/>
 				</div>
-				<div className="text-center sm:text-left text-white font-extrabold max-w-none absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5/6">
+				<div className="text-center lg:text-left text-white font-extrabold absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 container">
 					<h1 className="text-4xl sm:text-5xl xl:text-7xl my-4 text-primary-50">
 						Free, community-first
 						<br />
 						Minecraft server hosting
 					</h1>
-					<button className="mt-4 btn btn-big btn-outlined-hover w-max">
+					<button className="mt-4 btn btn-big btn-outlined w-max">
 						Get started
 					</button>
 				</div>
 			</div>
 			<div className="h-32 w-6/5 min-w-200 bg-white dark:bg-gray-800 rounded-1/2 relative bottom-16 left-1/2 transform -translate-x-1/2 -mb-32" />
-			<main className="lg:container relative px-12">
-				<div className="flex flex-col md:flex-row md:flex-wrap">
+			<main className="md:container relative px-12">
+				<div className="flex flex-col md:flex-row md:flex-wrap md:-mx-4">
 					<Card
 						title="Completely Free"
 						className="my-4 md:flex-1 md:mx-4 lg:my-0 text-center"

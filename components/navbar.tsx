@@ -24,7 +24,7 @@ const NavBar = () => {
 			}
 		>
 			<div className="container h-full flex justify items-center">
-				<Logo className="fill-current h-12 w-12" />
+				<Logo className="fill-current h-6 w-6 mr-2" />
 				<h1 className="text-xl font-bold">Minefly</h1>
 				<div className="flex-1" />
 				<button

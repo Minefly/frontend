@@ -41,7 +41,7 @@ const Home = () => {
 						}`}
 					/>
 				</div>
-				<div className="text-center sm:text-left text-white font-extrabold max-w-none absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-11/12">
+				<div className="text-center sm:text-left text-white font-extrabold max-w-none absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-5/6">
 					<h1 className="text-4xl sm:text-5xl xl:text-7xl my-4 text-primary-50">
 						Free, community-first
 						<br />

@@ -42,7 +42,7 @@ const Home = () => {
 					/>
 				</div>
 				<div className="text-center lg:text-left text-white font-extrabold absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 container">
-					<h1 className="text-4xl sm:text-5xl xl:text-7xl my-4 text-primary-50">
+					<h1 className="text-2xl sm:text-4xl xl:text-7xl my-4 text-primary-50">
 						Free, community-first
 						<br />
 						Minecraft server hosting
@@ -53,7 +53,7 @@ const Home = () => {
 				</div>
 			</div>
 			<div className="h-32 w-6/5 min-w-200 bg-white dark:bg-gray-800 rounded-1/2 relative bottom-16 left-1/2 transform -translate-x-1/2 -mb-32" />
-			<main className="md:container relative px-12">
+			<main className="container relative">
 				<div className="flex flex-col md:flex-row md:flex-wrap md:-mx-4">
 					<Card
 						title="Completely Free"

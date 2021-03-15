@@ -28,6 +28,7 @@ module.exports = {
 			},
 			height: {
 				200: "50rem",
+				0.75: "0.1875rem",
 			},
 			width: {
 				"6/5": "120%",
@@ -65,7 +66,8 @@ module.exports = {
 		container: {
 			center: true,
 			padding: {
-				DEFAULT: "3rem",
+				DEFAULT: "2rem",
+				lg: "3rem",
 				// md: "10%",
 				xl: "12rem",
 				// xl: "25%",

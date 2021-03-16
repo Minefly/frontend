@@ -11,6 +11,9 @@ const Page404 = () => {
 				It seems the page you were looking for could not be found. If you
 				believe this to be an error, please contact an administrator.
 			</p>
+			<a href="https://minefly.org" className="mt-4 btn btn-outlined btn--accent w-max">
+				Back to homepage
+			</a>
 		</div>
 	);
 };

@@ -10,7 +10,7 @@ const Page404 = () => {
 			<p className="sm:text-lg xl:text-xl my-4">
 				It seems the page you were looking for could not be found. If you
 				believe this to be an error, please contact an administrator.
-			</p>
+			</p
 		</div>
 	);
 };

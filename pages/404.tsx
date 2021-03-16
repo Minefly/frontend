@@ -5,7 +5,7 @@ const Page404 = () => {
 				Aw, snap!
 			</h1>
 			<h2 className="font-semibold text-xl sm:text-2xl xl:text-4xl my-4 dark:text-white">
-				404 Not Found
+				404 | Not Found
 			</h2>
 			<p className="sm:text-lg xl:text-xl my-4">
 				It seems the page you were looking for could not be found. If you

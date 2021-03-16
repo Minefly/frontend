@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import Card from "../components/card";
+import Footer from "../components/footer";
+import NavBar from "../components/navbar";
 
 const Home = () => {
 	const nOfImages = 3;
@@ -23,6 +25,7 @@ const Home = () => {
 
 	return (
 		<>
+			<NavBar contained />
 			<div className="banner w-full relative h-200">
 				<div className="banner-img-container">
 					<div
@@ -47,9 +50,9 @@ const Home = () => {
 						<br />
 						Minecraft server hosting
 					</h1>
-					<button className="mt-4 btn btn-big btn-outlined w-max">
+					<a href="/dashboard/home" className="mt-4 btn btn-big btn-outlined w-max">
 						Get started
-					</button>
+					</a>
 				</div>
 			</div>
 			<div className="h-32 w-6/5 min-w-200 bg-white dark:bg-gray-800 rounded-1/2 relative bottom-16 left-1/2 transform -translate-x-1/2 -mb-32" />
@@ -80,6 +83,7 @@ const Home = () => {
 					</Card>
 				</div>
 			</main>
+			<Footer className="mt-12" />
 		</>
 	);
 };

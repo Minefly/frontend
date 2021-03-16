@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 //@ts-ignore
 import Logo from "../public/minefly-rocket.svg";
 
-const NavBar = () => {
+const NavBar = (props) => {
+	const { contained, children, ...componentProps } = props;
+
 	const router = useRouter();
 
 	const [opaque, setOpaque] = useState(true);
@@ -33,49 +35,60 @@ const NavBar = () => {
 	return (
 		<>
 			<div
+				{...componentProps}
 				className={
-					"fixed z-30 top-0 left-0 right-0 transition-all h-14 " +
+					"fixed z-30 left-0 top-0 right-0 transition-all h-14 " +
 					(opaque
-						? "bg-gray-100 dark:bg-gray-850 text-black dark:text-white"
-						: "text-white")
+						? "bg-gray-100 dark:bg-gray-850 text-black dark:text-white "
+						: "text-white ") +
+					componentProps.className
 				}
 			>
-				<div className="container h-full flex items-center">
-					<a href="/" className="flex items-center h-full">
-						<Logo className="fill-current h-6 w-6 mr-2" />
-						<h1 className="text-xl font-bold">Minefly</h1>
-					</a>
-					<div className="flex-1" />
-					<a
-						href="/signin"
-						className={
-							"hidden md:block btn btn-outlined mr-2 " +
-							(opaque && "btn--accent")
-						}
-					>
-						Sign In
-					</a>
-					<a
-						href="/signup"
-						className={
-							"hidden md:block btn ml-2 btn-filled " + (opaque && "btn--accent")
-						}
-					>
-						Sign Up
-					</a>
-					<button
-						className="ml-4 focus:outline-none"
-						onClick={toggleSidebarOpen}
-					>
-						<div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
-						<div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
-						<div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
-					</button>
+				<div
+					className={
+						"h-full flex items-center " + (contained ? "container" : "mx-4")
+					}
+				>
+					{children || (
+						<>
+							<a href="/" className="flex items-center h-full">
+								<Logo className="fill-current h-6 w-6 mr-2" />
+								<h1 className="text-xl font-bold">Minefly</h1>
+							</a>
+							<div className="flex-1" />
+							<a
+								href="/signin"
+								className={
+									"hidden md:block btn btn-outlined mr-2 " +
+									(opaque && "btn--accent")
+								}
+							>
+								Sign In
+							</a>
+							<a
+								href="/signup"
+								className={
+									"hidden md:block btn ml-2 btn-filled " +
+									(opaque && "btn--accent")
+								}
+							>
+								Sign Up
+							</a>
+							<button
+								className="ml-4 focus:outline-none md:hidden"
+								onClick={toggleSidebarOpen}
+							>
+								<div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
+								<div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
+								<div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
+							</button>
+						</>
+					)}
 				</div>
 			</div>
 			<div
 				className={
-					"fixed z-40 inset-0 overlay bg-black bg-opacity-40 transition-opacity " +
+					"fixed z-40 inset-0 overlay bg-black bg-opacity-40 transition-opacity md:hidden " +
 					(!sidebarOpen && "opacity-0 ") +
 					(hidden && "hidden")
 				}
@@ -83,8 +96,9 @@ const NavBar = () => {
 			/>
 			<div
 				className={
-					"fixed z-50 top-0 -right-80 bottom-0 bg-gray-100 dark:bg-gray-850 w-80 rounded-l-md transition-transform p-8 dark:text-white " +
-					(sidebarOpen && "transform -translate-x-full")
+					"fixed z-50 top-0 -right-80 bottom-0 bg-gray-100 dark:bg-gray-850 w-80 rounded-l-md transition-transform p-8 dark:text-white md:hidden " +
+					(sidebarOpen && "transform -translate-x-full ") +
+					(hidden && "hidden")
 				}
 			>
 				<h1 className="text-xl font-bold">Minefly</h1>

@@ -4,9 +4,12 @@ import Discord from "../public/discord.svg";
 //@ts-ignore
 import Twitter from "../public/twitter.svg";
 
-const Footer = () => {
+const Footer = (props) => {
 	return (
-		<footer className="bg-gray-100 dark:bg-gray-850 w-full py-8 mt-12">
+		<footer
+			{...props}
+			className={"bg-gray-100 dark:bg-gray-850 w-full py-8 " + props.className}
+		>
 			<div className="h-full">
 				<div className="container flex justify-center">
 					<a

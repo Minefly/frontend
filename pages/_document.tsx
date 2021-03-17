@@ -5,7 +5,7 @@ export default class MineflyDocument extends Document {
 		return (
 			<Html>
 				<Head>
-					<link rel="shortcut icon" href="./minefly-rocket.svg" />
+					<link rel="shortcut icon" href="./minefly-rocket-dynamic.svg" />
 				</Head>
 				<body>
 					<Main />

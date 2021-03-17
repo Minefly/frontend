@@ -4,14 +4,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
-/* h1 {
-	font-size: 3rem;
-	font-weight: bold;
-} */
-
 @layer components {
 	.btn {
-		@apply px-4 py-2 rounded-md font-bold shadow-md focus:outline-none focus:ring transition-colors;
+		@apply px-4 py-2 rounded-md font-bold shadow-md focus:outline-none focus:ring transition-colors text-base inline-block;
 	}
 
 	.btn-big {
@@ -40,7 +35,7 @@
 	}
 
 	.btn-outlined.btn--accent {
-		@apply border-2 px-3.5 py-1.5 border-gray-800 dark:border-gray-200 text-gray-800 dark:text-gray-200 ring-gray-400;
+		@apply border-2 border-gray-800 dark:border-gray-200 text-gray-800 dark:text-gray-200 ring-gray-400;
 	}
 
 	.btn-outlined.btn--accent:hover,
@@ -91,7 +86,7 @@
 	}
 
 	.banner-img {
-		@apply absolute z-0 top-0 left-0 bg-cover bg-top w-screen h-full opacity-0 transform translate-x-full transition-transform duration-700;
+		@apply absolute z-0 top-0 left-0 bg-cover bg-top xl:bg-center w-screen h-full opacity-0 transform translate-x-full transition-transform duration-700;
 	}
 
 	.banner-img.active {

@@ -1,12 +1,13 @@
+import Head from "next/head";
 import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 
 const Page404 = () => {
 	return (
 		<>
-			<title>
-				404 | Minefly
-			</title>
+			<Head>
+				<title>404 | Minefly</title>
+			</Head>
 			<NavBar />
 			<div className="container text-center my-52">
 				<h1 className="font-extrabold text-3xl sm:text-5xl xl:text-7xl my-4 dark:text-white">
@@ -21,7 +22,7 @@ const Page404 = () => {
 				</p>
 				<a
 					href="https://minefly.org"
-					className="mt-4 btn btn-outlined btn--accent w-max"
+					className="mt-4 btn btn-outlined btn--accent"
 				>
 					Back to homepage
 				</a>

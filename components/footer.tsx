@@ -8,7 +8,9 @@ const Footer = (props) => {
 	return (
 		<footer
 			{...props}
-			className={"bg-gray-100 dark:bg-gray-850 w-full py-8 " + props.className}
+			className={
+				"bg-gray-100 dark:bg-gray-850 w-full py-8 flex-1 " + props.className
+			}
 		>
 			<div className="h-full">
 				<div className="container flex justify-center">

@@ -4,6 +4,9 @@ import NavBar from "../components/navbar";
 const Page404 = () => {
 	return (
 		<>
+			<title>
+				404 | Minefly
+			</title>
 			<NavBar />
 			<div className="container text-center my-52">
 				<h1 className="font-extrabold text-3xl sm:text-5xl xl:text-7xl my-4 dark:text-white">

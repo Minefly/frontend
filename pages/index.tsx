@@ -27,7 +27,7 @@ const Home = () => {
 	return (
 		<>
 			<Head>
-				<title>Home | Minefly</title>
+				<title>Free, Community First Minecraft Server Hosting | Minefly</title>
 			</Head>
 			<NavBar contained nopadding />
 			<div className="banner w-full relative h-200">

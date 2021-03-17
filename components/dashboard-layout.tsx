@@ -17,7 +17,6 @@ const DashboardLayout = (props) => {
 			>
 				<></>
 			</NavBar>
-			<div className="h-14" />
 			<div className="flex">
 				<div className="w-80 h-full">
 					<div className="fixed top-0 left-0 w-80 h-screen bg-gray-850 px-8">

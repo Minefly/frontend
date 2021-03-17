@@ -4,8 +4,14 @@ import { useEffect, useState } from "react";
 //@ts-ignore
 import Logo from "../public/minefly-rocket.svg";
 
-const NavBar = (props) => {
-	const { contained, children, ...componentProps } = props;
+export interface NavBarProps {
+	contained?: boolean;
+	nopadding?: boolean;
+	[key: string]: any;
+}
+
+const NavBar = (props: NavBarProps) => {
+	const { contained, nopadding, children, ...componentProps } = props;
 
 	const router = useRouter();
 
@@ -34,6 +40,7 @@ const NavBar = (props) => {
 
 	return (
 		<>
+			{nopadding || <div className="h-20" />}
 			<div
 				{...componentProps}
 				className={

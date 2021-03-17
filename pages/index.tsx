@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useState, useEffect } from "react";
 import Card from "../components/card";
 import Footer from "../components/footer";
@@ -25,7 +26,10 @@ const Home = () => {
 
 	return (
 		<>
-			<NavBar contained />
+			<Head>
+				<title>Home | Minefly</title>
+			</Head>
+			<NavBar contained nopadding />
 			<div className="banner w-full relative h-200">
 				<div className="banner-img-container">
 					<div
@@ -50,7 +54,10 @@ const Home = () => {
 						<br />
 						Minecraft server hosting
 					</h1>
-					<a href="/dashboard/home" className="mt-4 btn btn-big btn-outlined w-max">
+					<a
+						href="/dashboard/home"
+						className="mt-4 btn btn-big btn-outlined w-max"
+					>
 						Get started
 					</a>
 				</div>

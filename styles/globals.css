@@ -5,6 +5,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 @layer components {
+	.paragraph {
+		@apply mb-4;
+	}
+
 	.btn {
 		@apply px-4 py-2 rounded-md font-bold shadow-md focus:outline-none focus:ring transition-colors text-base inline-block;
 	}
@@ -134,5 +138,9 @@
 
 	.divider {
 		@apply h-0.5 bg-gray-300 dark:bg-gray-700;
+	}
+
+	.anchor {
+		@apply text-blue-500 hover:underline;
 	}
 }

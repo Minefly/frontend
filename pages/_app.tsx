@@ -17,7 +17,7 @@ const components: MDXProviderComponents = {
 						"font-extrabold text-3xl sm:text-5xl xl:text-7xl my-4 " + className
 					}
 				/>
-				{nodivider || <div className="divider my-4" />}
+				{nodivider || <div className="divider h-1 my-4" />}
 			</>
 		);
 	},
@@ -79,14 +79,16 @@ const components: MDXProviderComponents = {
 	ul(props) {
 		const className = props.className || "";
 
-		return <ul {...props} className={"list-inside list-disc " + className} />;
+		return (
+			<ul {...props} className={"list-inside list-disc ml-4 " + className} />
+		);
 	},
 
 	ol(props) {
 		const className = props.className || "";
 
 		return (
-			<ul {...props} className={"list-inside list-decimal " + className} />
+			<ul {...props} className={"list-inside list-decimal ml-4 " + className} />
 		);
 	},
 

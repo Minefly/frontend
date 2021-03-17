@@ -10,14 +10,14 @@ const Rules = () => {
 				Rules | Minefly
 			</title>
 			<NavBar contained />
-			<div className="container mx-4 text-left">
+			<div className="my-10 container mx-5 text-left">
 				<h1 className="font-semibold text-3xl sm:text-5xl xl:text-7xl my-4 dark:text-white">
-					Rules
+					Minefly Rules
 				</h1>
-				<p className="text-base dark:text-gray-50">
+				<p className="text-base dark:text-gray my-4">
 					By using the Minefly services you agree to follow Minefly's Terms of Service, Privacy Policy and all rules listed below. Failure to do so can result in a penalty.
 				</p>
-				<p className="text-lg dark:text-white">
+				<p className="text-lg dark:text-white my-4">
 					The rules are split into Player Server and Platform-Specific Rules. Platform rules only apply to the Minefly website, forums, lobbies, and discord server. When we talk about ‘you’ we mean you as the user of the platform and anything you’ve contributed to, related to the platform.
 				</p>
 				<h2 className="font-semibold text-xl sm:text-2xl xl:text-4xl my-4 dark:text-white">
@@ -27,7 +27,7 @@ const Rules = () => {
 					Platform Rules:
 				</h2>
 				<div  className="text-lg dark:text-white">
-					<ol type="1">
+					<ol className="list-inside" >
 						<li>You’re not allowed to swear or use curse words anywhere unless otherwise stated.</li>
 						<li>You’re not allowed to make threats against any services or players.</li>
 						<li>You’re not allowed to post content that can be seen as inappropriate, NSFW, or includes references to drugs/alcohol (including in skins	usernames, images, and anything else you can change)</li>

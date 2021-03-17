@@ -2,6 +2,7 @@ import { AppProps } from "next/app";
 import { MDXProvider, MDXProviderComponents } from "@mdx-js/react";
 
 import "../styles/globals.css";
+import Head from "next/head";
 
 const components: MDXProviderComponents = {
 	h1(props) {
@@ -96,6 +97,14 @@ const components: MDXProviderComponents = {
 		const className = props.className || "";
 
 		return <li {...props} className={"paragraph " + className} />;
+	},
+
+	title(props) {
+		return (
+			<Head>
+				<title {...props} />
+			</Head>
+		);
 	},
 };
 

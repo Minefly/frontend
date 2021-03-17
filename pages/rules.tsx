@@ -27,7 +27,7 @@ const Rules = () => {
 					Platform Rules:
 				</h2>
 				<div  className="text-lg dark:text-white">
-					<ol className="list-inside" >
+					<ol className="list-inside list-decimal" >
 						<li>You’re not allowed to swear or use curse words anywhere unless otherwise stated.</li>
 						<li>You’re not allowed to make threats against any services or players.</li>
 						<li>You’re not allowed to post content that can be seen as inappropriate, NSFW, or includes references to drugs/alcohol (including in skins	usernames, images, and anything else you can change)</li>

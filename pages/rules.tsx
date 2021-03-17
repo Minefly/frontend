@@ -8,9 +8,9 @@ const Rules = () => {
 				Rules | Minefly
 			</title>
 			<NavBar />
-			<div class="banner w-full relative h-50" style="background-image: url(https://images.indianexpress.com/2020/05/Minecraft-1200-1.jpg)"> 
-				<div className="text-center lg:text-left text-white font-extrabold absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 container">
-					<h1 className="text-2xl sm:text-4xl xl:text-7xl my-4 text-primary-50">
+			<div class="py-20" style="background: linear-gradient(90deg, #667eea 0%, #764ba2 100%)">
+				<div class="container mx-auto content-center">
+					<h1 class="text-4xl font-bold center text-white">
 						Rules
 					</h1>
 				</div>

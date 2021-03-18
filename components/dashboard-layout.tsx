@@ -2,7 +2,7 @@ import NavBar from "./navbar";
 
 //@ts-ignore
 import Logo from "../public/minefly-rocket.svg";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 
 const DashboardLayout = (props) => {
 	const router = useRouter();
@@ -118,9 +118,7 @@ const DashboardLayout = (props) => {
 						</div>
 					</div>
 				</div>
-				<div className="flex-1">
-					<h1 className="text-2xl font-bold">hello</h1>
-				</div>
+				<div {...props} className={"flex-1 " + props.className} />
 			</div>
 		</>
 	);

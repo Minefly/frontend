@@ -6,7 +6,7 @@ const Card = (props) => {
 			<div
 				{...props}
 				className={
-					"bg-gray-100 dark:bg-gray-850 shadow-lg px-8 pt-10 pb-12 rounded-xl " +
+					"card " +
 					props.className
 				}
 			>

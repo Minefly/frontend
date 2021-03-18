@@ -143,4 +143,8 @@
 	.anchor {
 		@apply text-blue-500 hover:underline;
 	}
+
+	.card {
+		@apply bg-gray-100 dark:bg-gray-850 shadow-lg px-8 pt-10 pb-12 rounded-xl;
+	}
 }

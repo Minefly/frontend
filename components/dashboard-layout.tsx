@@ -19,7 +19,7 @@ const DashboardLayout = (props) => {
 			</NavBar>
 			<div className="flex">
 				<div className="w-80 h-full">
-					<div className="fixed top-0 left-0 w-80 h-screen bg-gray-850 px-8">
+					<div className="fixed top-0 left-0 w-80 h-screen bg-gray-100 dark:bg-gray-850 px-8">
 						<a
 							href="/"
 							className="h-14 flex items-center justify-center w-min mx-auto"

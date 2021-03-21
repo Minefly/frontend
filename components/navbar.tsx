@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 //@ts-ignore
 import Logo from "../public/minefly-rocket.svg";
+import Sidebar from "./sidebar";
 
 export interface NavBarProps {
     contained?: boolean;
@@ -11,13 +12,20 @@ export interface NavBarProps {
 }
 
 const NavBar = (props: NavBarProps) => {
-    const { contained, nopadding, children, ...componentProps } = props;
+    const {
+        contained,
+        nopadding,
+        sidebarOpen: sidebarOpenState,
+        hidden: hiddenState,
+        children,
+        ...componentProps
+    } = props;
 
     const router = useRouter();
 
     const [opaque, setOpaque] = useState(true);
-    const [sidebarOpen, setSidebarOpen] = useState(false);
-    const [hidden, setHidden] = useState(true);
+    const [sidebarOpen, setSidebarOpen] = sidebarOpenState || useState(false);
+    const [hidden, setHidden] = hiddenState || useState(true);
 
     const toggleSidebarOpen = () => {
         if (sidebarOpen)
@@ -30,12 +38,24 @@ const NavBar = (props: NavBarProps) => {
 
     if (router.asPath === "/")
         useEffect(() => {
-            const listener = () => setOpaque(window.pageYOffset > 20);
-            listener();
+            const scrollListener = () => setOpaque(window.pageYOffset > 20);
+            scrollListener();
 
-            window.addEventListener("scroll", listener);
+            const screenListener = () => {
+                if (window.matchMedia("(min-width: 768px)").matches) {
+                    setHidden(true);
+                    setSidebarOpen(false);
+                }
+            };
+            screenListener();
 
-            return () => window.removeEventListener("scroll", listener);
+            window.addEventListener("scroll", scrollListener);
+            window.addEventListener("resize", screenListener);
+
+            return () => {
+                window.removeEventListener("scroll", scrollListener);
+                window.removeEventListener("resize", screenListener);
+            };
         }, []);
 
     return (
@@ -44,7 +64,7 @@ const NavBar = (props: NavBarProps) => {
             <div
                 {...componentProps}
                 className={
-                    "fixed z-50 left-0 top-0 right-0 transition-all h-14 " +
+                    "fixed z-40 left-0 top-0 right-0 transition-all h-14 " +
                     (opaque || sidebarOpen
                         ? "bg-gray-100 dark:bg-gray-850 text-black dark:text-white "
                         : "text-white ") +
@@ -54,7 +74,7 @@ const NavBar = (props: NavBarProps) => {
                 <div
                     className={
                         "h-full flex items-center " +
-                        (contained ? "container" : "mx-4")
+                        (contained ? "container" : "mx-8")
                     }
                 >
                     {children || (
@@ -94,24 +114,12 @@ const NavBar = (props: NavBarProps) => {
                     )}
                 </div>
             </div>
-            <div
-                className={
-                    "fixed z-40 inset-0 overlay bg-black bg-opacity-40 transition-opacity md:hidden " +
-                    (!sidebarOpen && "opacity-0 ") +
-                    (hidden && !sidebarOpen && "hidden")
-                }
-                onClick={toggleSidebarOpen}
-            />
-            <div
-                className={
-                    "fixed z-40 top-14 -right-80 bottom-0 bg-gray-100 dark:bg-gray-850 w-80 rounded-bl-md transition-transform p-8 dark:text-white md:hidden " +
-                    (sidebarOpen && "transform -translate-x-full ") +
-                    (hidden && !sidebarOpen && "hidden")
-                }
-            >
-                <h1 className="text-xl font-bold">Minefly</h1>
-                <div className="divider rounded-full my-4" />
-                <div>
+            {!props.hidden && !props.sidebarOpen && (
+                <Sidebar
+                    anchor="right"
+                    hidden={[hidden, setHidden]}
+                    sidebarOpen={[sidebarOpen, setSidebarOpen]}
+                >
                     <ul>
                         <li>
                             <a
@@ -150,8 +158,8 @@ const NavBar = (props: NavBarProps) => {
                             </a>
                         </li>
                     </ul>
-                </div>
-            </div>
+                </Sidebar>
+            )}
         </>
     );
 };

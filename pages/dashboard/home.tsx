@@ -8,7 +8,7 @@ const DashboardHome = () => {
                 <title>Home | Minefly Dashboard</title>
             </Head>
             <DashboardLayout>
-                <div className="container grid grid-cols-12 gap-4 m-4">
+                <div className="container grid grid-cols-12 gap-4 my-6">
                     <div className="col-span-12 card text-center flex items-center -mx-2">
                         <h2 className="text-xl font-bold mx-2">Server 1</h2>
                         <p className="bg-green-600 py-0.5 px-5 rounded-full mx-2">

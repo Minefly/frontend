@@ -1,28 +1,28 @@
 {
-	"name": "minefly-frontend",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
-		"start": "next start -p $PORT"
-	},
-	"dependencies": {
-		"@mdx-js/loader": "^1.6.22",
-		"@mdx-js/react": "^1.6.22",
-		"@next/mdx": "^10.0.9",
-		"@svgr/webpack": "^5.5.0",
-		"next": "^10.0.9",
-		"react": "^17.0.1",
-		"react-dom": "^17.0.1"
-	},
-	"devDependencies": {
-		"@types/mdx-js__react": "^1.5.3",
-		"@types/node": "^14.14.34",
-		"@types/react": "^17.0.3",
-		"autoprefixer": "^10.2.5",
-		"postcss": "^8.2.8",
-		"tailwindcss": "^2.0.3",
-		"typescript": "^4.2.3"
-	}
+    "name": "minefly-frontend",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start"
+    },
+    "dependencies": {
+        "@mdx-js/loader": "^1.6.22",
+        "@mdx-js/react": "^1.6.22",
+        "@next/mdx": "^10.0.9",
+        "@svgr/webpack": "^5.5.0",
+        "next": "^10.0.9",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1"
+    },
+    "devDependencies": {
+        "@types/mdx-js__react": "^1.5.3",
+        "@types/node": "^14.14.34",
+        "@types/react": "^17.0.3",
+        "autoprefixer": "^10.2.5",
+        "postcss": "^8.2.8",
+        "tailwindcss": "^2.0.3",
+        "typescript": "^4.2.3"
+    }
 }

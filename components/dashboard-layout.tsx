@@ -34,7 +34,9 @@ const DashboardLayout = (props) => {
 					visible
 					sidebarOpen={[sidebarOpen, setSidebarOpen]}
 					hidden={[hidden, setHidden]}
-				/>
+				>
+					{props.sidebar}
+				</Sidebar>
 				<div {...props} className={"flex-1 " + (props.className || "")} />
 			</div>
 		</>

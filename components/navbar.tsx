@@ -1,5 +1,6 @@
+import { useTheme } from "next-themes";
 import { useRouter } from "next/dist/client/router";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 //@ts-ignore
 import Logo from "../public/minefly-rocket.svg";
@@ -35,6 +36,10 @@ const NavBar = (props: NavBarProps) => {
 		else setHidden(false);
 		setTimeout(() => setSidebarOpen(!sidebarOpen), 0);
 	};
+
+	const { theme, setTheme } = useTheme();
+
+	const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
 
 	if (router.asPath === "/")
 		useEffect(() => {
@@ -83,10 +88,19 @@ const NavBar = (props: NavBarProps) => {
 								<h1 className="text-xl font-bold">Minefly</h1>
 							</a>
 							<div className="flex-1" />
+							<button
+								className={
+									"hidden md:block btn mr-2 btn-filled " +
+									(opaque && "btn--accent")
+								}
+								onClick={toggleTheme}
+							>
+								Switch Theme
+							</button>
 							<a
 								href="/signin"
 								className={
-									"hidden md:block btn btn-outlined mr-2 " +
+									"hidden md:block btn btn-outlined mx-2 " +
 									(opaque && "btn--accent")
 								}
 							>

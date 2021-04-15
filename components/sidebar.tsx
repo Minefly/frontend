@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
+import Link from "next/link";
 
 const Sidebar = (props) => {
 	let {
@@ -66,7 +67,7 @@ const Sidebar = (props) => {
 				{children || (
 					<>
 						<button
-							className="btn btn-filled btn--accent"
+							className="btn btn-filled btn--accent select-none"
 							onClick={toggleLoggedIn}
 						>
 							Signed In: {loggedIn.toString()}
@@ -74,10 +75,10 @@ const Sidebar = (props) => {
 						{!loggedIn ? (
 							<ul>
 								<li>
+									<Link href="/">
 									<a
-										href="/"
 										className={
-											"rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left " +
+											"rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left select-none" +
 											(router.asPath === "/" && "bg-gray-100 dark:bg-gray-800")
 										}
 									>
@@ -97,12 +98,13 @@ const Sidebar = (props) => {
 										</svg>
 										Home
 									</a>
+									</Link>
 								</li>
 								<li>
+									<Link href="/signin">
 									<a
-										href="/signin"
 										className={
-											"rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left " +
+											"rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left select-none" +
 											(router.asPath === "/signin" &&
 												"bg-gray-100 dark:bg-gray-800")
 										}
@@ -123,12 +125,13 @@ const Sidebar = (props) => {
 										</svg>
 										Sign In
 									</a>
+									</Link>
 								</li>
 								<li>
+									<Link href="/signup">
 									<a
-										href="/signup"
 										className={
-											"rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left " +
+											"rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left select-none" +
 											(router.asPath === "/signup" &&
 												"bg-gray-100 dark:bg-gray-800")
 										}
@@ -149,15 +152,16 @@ const Sidebar = (props) => {
 										</svg>
 										Sign Up
 									</a>
+									</Link>
 								</li>
 							</ul>
 						) : (
 							<ul>
 								<li>
+									<Link href="/dashboard/home">
 									<a
-										href="/dashboard/home"
 										className={
-											"rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left " +
+											"rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left select-none" +
 											(router.asPath === "/dashboard/home" &&
 												"bg-gray-200 dark:bg-gray-800")
 										}
@@ -178,12 +182,13 @@ const Sidebar = (props) => {
 										</svg>
 										Dashboard
 									</a>
+									</Link>
 								</li>
 								<li>
+									<Link href="/shop">
 									<a
-										href="/shop"
 										className={
-											"rounded-lg hover:underline w-full my-2 px-4 py-3 text-left flex items-center " +
+											"rounded-lg hover:underline w-full my-2 px-4 py-3 text-left flex items-center select-none" +
 											(router.asPath === "/shop" &&
 												"bg-gray-200 dark:bg-gray-800")
 										}
@@ -204,12 +209,13 @@ const Sidebar = (props) => {
 										</svg>
 										Shop
 									</a>
+									</Link>
 								</li>
 								<li>
+									<Link href="/account/settings">
 									<a
-										href="/account/settings"
 										className={
-											"rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left " +
+											"rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left select-none" +
 											(router.asPath === "/account/settings" &&
 												"bg-gray-200 dark:bg-gray-800")
 										}
@@ -236,6 +242,7 @@ const Sidebar = (props) => {
 										</svg>
 										Account Settings
 									</a>
+									</Link>
 								</li>
 							</ul>
 						)}

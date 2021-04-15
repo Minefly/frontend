@@ -24,7 +24,7 @@ const Page404 = () => {
                 </p>
                 <Link href="/">
                 <a
-                    className="mt-4 btn btn-outlined btn--accent"
+                    className="mt-4 btn btn-outlined btn--accent select-none"
                 >
                     Back to homepage
                 </a>

@@ -80,7 +80,7 @@ const NavBar = (props: NavBarProps) => {
 			>
 				<div
 					className={
-						"h-full flex items-center " + (contained ? "container" : "mx-8")
+						"h-full flex items-center select-none " + (contained ? "container" : "mx-8")
 					}
 				>
 					{children || (

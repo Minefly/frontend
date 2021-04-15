@@ -57,7 +57,7 @@ const Home = () => {
                     </h1>
                     <Link href="/dashboard/home">
                     <a
-                        className="mt-4 btn btn-big btn-outlined w-max"
+                        className="mt-4 btn btn-big btn-outlined w-max select-none"
                     >
                         Get started
                     </a>

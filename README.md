@@ -40,11 +40,8 @@ Select your repo (should be like \<yourname>/frontend) and hit clone!
 1. Download [Nodejs](https://nodejs.org/en/) and [Yarn](https://classic.yarnpkg.com/en/docs/install/#windows-stable)
 2. Launch Nodejs (should look something like windows terminal)
 3. Send `yarn` in nodejs, then feel free to close the window after it does its thing
-4. Open the VSC terminal. This can be done by pressing Ctrl + Shift + P, searching terminal, and clicking on the first result.
-
-![image](https://user-images.githubusercontent.com/69743171/111860360-42e35000-8904-11eb-86a5-b6fc0ebf551e.png)
-
-5. Type `yarn dev` into the terminal, and it should look like below (this may take a while)
+4. Open the VSC terminal. This can be done by pressing Ctrl + Shift + \`. If you can't use keybinds for some reason, right click on the project, click "Open command Prompt" and copy this into the searchbar `Terminal: Create New Integrated Terminal (In Active Workspace)`. Click the first (and only) result.
+5. Type `yarn dev` into the terminal, and it should look like below (this may take a while!)
 
 ![image](https://user-images.githubusercontent.com/69743171/111860756-f2b9bd00-8906-11eb-951d-d770c3e8b042.png)
 

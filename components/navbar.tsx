@@ -1,6 +1,8 @@
 import { useTheme } from "next-themes";
 import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
 import { useContext, useEffect, useState } from "react";
+
 
 //@ts-ignore
 import Logo from "../public/minefly-rocket.svg";
@@ -83,10 +85,12 @@ const NavBar = (props: NavBarProps) => {
 				>
 					{children || (
 						<>
-							<a href="/" className="flex items-center h-full">
-								<Logo className="fill-current h-6 w-6 mr-2" />
-								<h1 className="text-xl font-bold">Minefly</h1>
-							</a>
+							<Link href="/">
+								<a className="flex items-center h-full">
+									<Logo className="fill-current h-6 w-6 mr-2" />
+									<h1 className="text-xl font-bold">Minefly</h1>
+								</a>
+							</Link>
 							<div className="flex-1" />
 							<button
 								className={
@@ -97,24 +101,26 @@ const NavBar = (props: NavBarProps) => {
 							>
 								Switch Theme
 							</button>
-							<a
-								href="/signin"
-								className={
-									"hidden md:block btn btn-outlined mx-2 " +
-									(opaque && "btn--accent")
-								}
-							>
-								Sign In
-							</a>
-							<a
-								href="/signup"
-								className={
-									"hidden md:block btn ml-2 btn-filled " +
-									(opaque && "btn--accent")
-								}
-							>
-								Sign Up
-							</a>
+							<Link href="/signin">
+								<a
+									className={
+										"hidden md:block btn btn-outlined mx-2 " +
+										(opaque && "btn--accent")
+									}
+								>
+									Sign In
+								</a>
+							</Link>
+							<Link href="/signup">
+								<a
+									className={
+										"hidden md:block btn ml-2 btn-filled " +
+										(opaque && "btn--accent")
+									}
+								>
+									Sign Up
+								</a>
+							</Link>
 							<button
 								className="ml-4 focus:outline-none md:hidden"
 								onClick={toggleSidebarOpen}

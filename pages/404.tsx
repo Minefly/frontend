@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Footer from "../components/footer";
 import NavBar from "../components/navbar";
+import Link from "next/link";
 
 const Page404 = () => {
     return (
@@ -21,12 +22,13 @@ const Page404 = () => {
                     If you believe this to be an error, please contact an
                     administrator.
                 </p>
+                <Link href="/">
                 <a
-                    href="https://minefly.org"
                     className="mt-4 btn btn-outlined btn--accent"
                 >
                     Back to homepage
                 </a>
+                </Link>
             </div>
             <Footer />
         </>

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import DashboardLayout from "../../components/dashboard-layout";
 
 const DashboardHome = () => {
@@ -17,12 +18,9 @@ const DashboardHome = () => {
 							<p className="chip bg-green-600 text-white">Online</p>
 						</div>
 						<div className="hidden sm:block flex-1" />
-						<a
-							href="/dashboard/server/SomeServer"
-							className="btn btn-filled btn--primary mx-2"
-						>
-							Edit server
-						</a>
+						<Link href="/dashboard/server/SomeServer">
+							<a className="btn btn-filled btn--primary mx-2">Edit server</a>
+						</Link>
 					</div>
 				</div>
 			</DashboardLayout>

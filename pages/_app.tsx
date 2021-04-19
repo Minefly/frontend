@@ -116,7 +116,7 @@ const components: Components = {
 
 function App({ Component, pageProps }: AppProps) {
 	return (
-		<ThemeProvider attribute="class" defaultTheme="dark">
+		<ThemeProvider attribute="class">
 			<div className="min-h-screen w-full dark:bg-gray-800 dark:text-white leading-relaxed overflow-x-hidden overflow-y-visible flex flex-col">
 				<MDXProvider components={components}>
 					<Component {...pageProps} />

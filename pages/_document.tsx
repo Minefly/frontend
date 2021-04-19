@@ -13,7 +13,7 @@ export default class MineflyDocument extends Document {
 
 	render() {
 		return (
-			<Html>
+			<Html className="dark">
 				<Head>
 					<link rel="shortcut icon" href="/minefly-rocket-dynamic.svg" />
 				</Head>

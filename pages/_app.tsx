@@ -4,8 +4,13 @@ import { MDXProvider, MDXProviderComponents } from "@mdx-js/react";
 import "../styles/globals.css";
 import Head from "next/head";
 import { ThemeProvider } from "next-themes";
+import { FC } from "react";
 
-const components: MDXProviderComponents = {
+interface Components extends MDXProviderComponents {
+	title: FC;
+}
+
+const components: Components = {
 	h1(props) {
 		const { nodivider, ...componentProps } = props;
 

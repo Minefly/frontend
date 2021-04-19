@@ -1,8 +1,14 @@
 import { useTheme } from "next-themes";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
-import { useContext, useEffect, useState } from "react";
-
+import {
+	Dispatch,
+	FC,
+	SetStateAction,
+	useContext,
+	useEffect,
+	useState,
+} from "react";
 
 //@ts-ignore
 import Logo from "../public/minefly-rocket.svg";
@@ -11,10 +17,12 @@ import Sidebar from "./sidebar";
 export interface NavBarProps {
 	contained?: boolean;
 	nopadding?: boolean;
-	[key: string]: any;
+	sidebarOpen?: [boolean, Dispatch<SetStateAction<boolean>>];
+	hidden?: [boolean, Dispatch<SetStateAction<boolean>>];
+	className?: string;
 }
 
-const NavBar = (props: NavBarProps) => {
+const NavBar: FC<NavBarProps> = (props) => {
 	const {
 		contained,
 		nopadding,
@@ -27,8 +35,12 @@ const NavBar = (props: NavBarProps) => {
 	const router = useRouter();
 
 	const [opaque, setOpaque] = useState(true);
-	const [sidebarOpen, setSidebarOpen] = sidebarOpenState || useState(false);
-	const [hidden, setHidden] = hiddenState || useState(true);
+	const [sidebarOpen, setSidebarOpen] =
+		sidebarOpenState ||
+		(useState(false) as [boolean, Dispatch<SetStateAction<boolean>>]);
+	const [hidden, setHidden] =
+		hiddenState ||
+		(useState(true) as [boolean, Dispatch<SetStateAction<boolean>>]);
 
 	const toggleSidebarOpen = () => {
 		if (sidebarOpen)
@@ -80,7 +92,8 @@ const NavBar = (props: NavBarProps) => {
 			>
 				<div
 					className={
-						"h-full flex items-center select-none " + (contained ? "container" : "mx-8")
+						"h-full flex items-center select-none " +
+						(contained ? "container" : "mx-8")
 					}
 				>
 					{children || (

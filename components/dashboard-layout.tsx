@@ -3,10 +3,15 @@ import NavBar from "./navbar";
 //@ts-ignore
 import Logo from "../public/minefly-rocket.svg";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { FC, useState } from "react";
 import Sidebar from "./sidebar";
 
-const DashboardLayout = (props) => {
+interface LayoutProps {
+	sidebar?: JSX.Element;
+	className?: string;
+}
+
+const DashboardLayout: FC<LayoutProps> = (props) => {
 	const router = useRouter();
 
 	const [sidebarOpen, setSidebarOpen] = useState(false);

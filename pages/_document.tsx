@@ -1,7 +1,13 @@
-import Document, { Html, Main, NextScript, Head } from "next/document";
+import Document, {
+	Html,
+	Main,
+	NextScript,
+	Head,
+	DocumentProps,
+} from "next/document";
 
 export default class MineflyDocument extends Document {
-	constructor(props) {
+	constructor(props: DocumentProps) {
 		super(props);
 	}
 

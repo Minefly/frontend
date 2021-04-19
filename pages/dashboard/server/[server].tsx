@@ -1,7 +1,8 @@
 import { useRouter } from "next/router";
+import { FC } from "react";
 import DashboardLayout from "../../../components/dashboard-layout";
 
-const Server = (props) => {
+const Server: FC = () => {
 	const router = useRouter();
 
 	const { server: serverName } = router.query;

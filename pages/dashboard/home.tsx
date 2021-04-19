@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
+import { FC } from "react";
 import DashboardLayout from "../../components/dashboard-layout";
 
-const DashboardHome = () => {
+const DashboardHome: FC = () => {
 	return (
 		<>
 			<Head>

@@ -1,15 +1,18 @@
 const withMDX = require("@next/mdx")({
-	extension: /\.mdx$/,
+    extension: /\.mdx$/,
 });
 
 module.exports = withMDX({
-	pageExtensions: ["tsx", "mdx"],
-	webpack(config) {
-		config.module.rules.push({
-			test: /\.svg$/,
-			use: ["@svgr/webpack"],
-		});
+    future: {
+        webpack5: true,
+    },
+    pageExtensions: ["tsx", "mdx"],
+    webpack(config) {
+        config.module.rules.push({
+            test: /\.svg$/,
+            use: ["@svgr/webpack"],
+        });
 
-		return config;
-	},
+        return config;
+    },
 });

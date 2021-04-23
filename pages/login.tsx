@@ -3,16 +3,16 @@ import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 import Link from "next/link";
 
-const signin = () => {
+const login = () => {
     return (
         <>
             <Head>
-                <title>Sign In | Minefly</title>
+                <title>Login | Minefly</title>
             </Head>
             <NavBar />
             <div className="relative flex flex-grow justify-center items-center bg-gray-800">
                 <div className="bg-gray-900 rounded shadow-2xl p-2">
-                    <h2 className="text-lg font-semibold text-center">Sign In</h2>
+                    <h2 className="text-lg font-semibold text-center">Login</h2>
                     <form className="mx-6 my-3 flex flex-col">
                         <label 
                             htmlFor="email" 
@@ -63,4 +63,4 @@ const signin = () => {
     );
 };
 
-export default signin;
+export default login;

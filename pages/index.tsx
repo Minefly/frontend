@@ -1,3 +1,4 @@
+import imgs from "../styles/index.module.css";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import Card from "../components/card";
@@ -34,17 +35,17 @@ const Home = () => {
             <div className="banner w-full relative h-200">
                 <div className="banner-img-container">
                     <div
-                        className={`banner-img img-1 ${
+                        className={`banner-img ${imgs["img-1"]} ${
                             currentImg === 1 ? "active" : ""
                         } ${currentImg === 2 && isMoving ? "exiting" : ""}`}
                     />
                     <div
-                        className={`banner-img img-2 ${
+                        className={`banner-img ${imgs["img-2"]} ${
                             currentImg === 2 ? "active" : ""
                         } ${currentImg === 3 && isMoving ? "exiting" : ""}`}
                     />
                     <div
-                        className={`banner-img img-3 ${
+                        className={`banner-img ${imgs["img-3"]} ${
                             currentImg === 3 ? "active" : ""
                         } ${currentImg === 1 && isMoving ? "exiting" : ""}`}
                     />

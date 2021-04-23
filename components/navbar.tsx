@@ -114,14 +114,14 @@ const NavBar: FC<NavBarProps> = (props) => {
 							>
 								Switch Theme
 							</button>
-							<Link href="/signin">
+							<Link href="/login">
 								<a
 									className={
 										"hidden md:block btn btn-outlined mx-2 " +
 										(opaque && "btn--accent")
 									}
 								>
-									Sign In
+									Login
 								</a>
 							</Link>
 							<Link href="/signup">

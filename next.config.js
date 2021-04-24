@@ -16,4 +16,7 @@ module.exports = withMDX({
     return config;
   },
   poweredByHeader: false,
+  env: {
+    "HCAPTCHA.SITEKEY": "e50876fc-880d-4446-ad56-c6cbf293a84e",
+  },
 });

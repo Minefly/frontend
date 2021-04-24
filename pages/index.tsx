@@ -5,6 +5,7 @@ import Card from "../components/card";
 import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 import Link from "next/link";
+import {API_URL } from "./constants";
 
 const Home = () => {
     const nOfImages = 3;

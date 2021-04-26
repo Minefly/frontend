@@ -42,4 +42,4 @@ yarn-error.log*
 package-lock.json
 
 
-/pages/constants.ts
+pages/constants.ts

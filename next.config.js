@@ -19,4 +19,17 @@ module.exports = withMDX({
   env: {
     "HCAPTCHA.SITEKEY": "e50876fc-880d-4446-ad56-c6cbf293a84e",
   },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+        ],
+      },
+    ];
+  },
 });

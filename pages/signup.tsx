@@ -7,7 +7,21 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { API_URL } from "./constants";
 
 const signup = () => {
-    const email = useRef<HTMLInputElement>(null);
+    return (
+        <>
+            <Head>
+                <title>Sign Up | Minefly</title>
+            </Head>
+            <NavBar />
+            <SignupForm />
+            <Footer />
+        </>
+    );
+};
+
+
+const SignupForm = () => {
+      const email = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
     const captchaRef = useRef(null);
     const [token, setToken] = useState<string | null>(null);
@@ -29,19 +43,12 @@ const signup = () => {
                 body: JSON.stringify(signupObj)
             });
         if (!resp.ok) {
-            setError("An error was encountered while signing up:" +await resp.text())
+            setError(`${resp.statusText} ${await resp.text()}` )
             return;
         }
     }
-
-
-    return (
-        <>
-            <Head>
-                <title>Sign Up | Minefly</title>
-            </Head>
-            <NavBar />
-            <div className="relative flex flex-grow justify-center items-center bg-gray-800">
+  return <>
+                <div className="relative flex flex-grow justify-center items-center bg-gray-800">
                 <div className="bg-gray-900 rounded shadow-2xl p-2">
                     <h2 className="text-lg font-semibold text-center">Sign up</h2>
                     <form className="mx-6 my-3 flex flex-col" onSubmit={handleSubmit}>
@@ -85,9 +92,8 @@ const signup = () => {
                     </Link>
                 </div>
             </div>
-            <Footer />
-        </>
-    );
-};
+  </>
+}
+
 
 export default signup;

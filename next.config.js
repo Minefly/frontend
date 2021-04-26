@@ -24,10 +24,12 @@ module.exports = withMDX({
       {
         source: "/(.*)",
         headers: [
+          /*
           {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
+            key: "Content-Security-Policy",
+            value:
+              "default-src 'self'; script-src https://hcaptcha.com, https://*.hcaptcha.com, 'self'; frame-src https://hcaptcha.com, https://*.hcaptcha.com, 'self'; style-src https://hcaptcha.com, https://*.hcaptcha.com, 'self'; connect-src https://hcaptcha.com, https://*.hcaptcha.com, 'self'",
+          },*/
         ],
       },
     ];

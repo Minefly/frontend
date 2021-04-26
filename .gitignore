@@ -40,3 +40,6 @@ yarn-error.log*
 
 # if running on npm
 package-lock.json
+
+
+/pages/constants.ts

@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Link from "next/link";
+import { FormEvent, useRef, useState } from "react";
 import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 import { API_URL } from "./constants";
@@ -7,7 +9,7 @@ const verifyEmail = () => {
     return (
         <>
             <Head>
-                <title>Sign Up | Minefly</title>
+                <title>Email Verification | Minefly</title>
             </Head>
             <NavBar />
             <VerificationForm />
@@ -17,10 +19,54 @@ const verifyEmail = () => {
 };
 
 
-export const VerificationForm = () => {
-  return (<></>)
-}
+const VerificationForm = () => {
+    const verCode = useRef<HTMLInputElement>(null);
+    const [error, setError] = useState<string | null>(null);
+    async function handleSubmit(event: FormEvent) {
+        event.preventDefault();
+        const resp = await fetch(API_URL + "/signup/verify-email",
+            {
+                method: "POST",
+                body: verCode.current!!.value
+            });
+        if (!resp.ok) {
+            setError(`${resp.statusText} ${await resp.text()}` )
+            return;
+        }
+    }
+  return <>
+                <div className="relative flex flex-grow justify-center items-center bg-gray-800">
+                <div className="bg-gray-900 rounded shadow-2xl p-2">
+                    <h2 className="text-lg font-semibold text-center">Sign up</h2>
+                    <form className="mx-6 my-3 flex flex-col" onSubmit={handleSubmit}>
+                        <label 
+                            htmlFor="ver-code" 
+                            className="text-gray-300 text-sm pl-2"
+                        >Verification Code</label>
+                        <input 
+                            type="text" 
+                            id="ver-code" 
+                            name="fname"
+                            ref={verCode}
+                            className="bg-gray-850 focus:outline-none rounded shadow px-2 py-1 w-80 " 
+                            required
+                        />
 
+                        <p className="text-gray-300 text-sm">By signing up you agree to the Privacy Policy and the Terms of Service</p>
+                        {error != null ? <span /** Needs to be styled */>{error}</span> : ''}
+                        <input type="submit" value="Sign up" className="btn btn-filled btn--primary mt-3" />
+                    </form>
+                    
+                    <Link href="/login">
+                        <p className="text-blue-500 hover:underline cursor-pointer text-xs text-center mt-2">Looking to login?</p>
+                    </Link>
+                    <Link href="/signup">
+                        <p className="text-blue-500 hover:underline cursor-pointer text-xs text-center mt-2">Looking to sign up?</p>
+                    </Link>
+                </div>
+            </div>
+  </>
+}
 
 
 export default verifyEmail;

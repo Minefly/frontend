@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { Dispatch, FC, SetStateAction, useState } from "react";
 import Link from "next/link";
+import { useAuthStore } from "../store/auth";
 
 interface SidebarProps {
 	sidebarOpen?: [boolean, Dispatch<SetStateAction<boolean>>];
@@ -26,7 +27,7 @@ const Sidebar: SidebarComponent = (props) => {
 
 	const router = useRouter();
 
-	const [loggedIn, setLoggedIn] = useState(false);
+	const loggedIn = useAuthStore(store => store.loggedIn);
 
 	const [hidden, setHidden] =
 		hiddenState ||
@@ -35,7 +36,6 @@ const Sidebar: SidebarComponent = (props) => {
 		sidebarOpenState ||
 		(useState(false) as [boolean, Dispatch<SetStateAction<boolean>>]);
 
-	const toggleLoggedIn = () => setLoggedIn(!loggedIn);
 
 	const toggleSidebarOpen = () => {
 		if (sidebarOpen)
@@ -81,12 +81,7 @@ const Sidebar: SidebarComponent = (props) => {
 			>
 				{children || (
 					<>
-						<button
-							className="btn btn-filled btn--accent select-none"
-							onClick={toggleLoggedIn}
-						>
-							Signed In: {loggedIn.toString()}
-						</button>
+
 						{!loggedIn ? (
 							<ul>
 								<li>

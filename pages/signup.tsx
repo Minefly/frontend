@@ -90,6 +90,9 @@ const SignupForm = () => {
                     <Link href="/login">
                         <p className="text-blue-500 hover:underline cursor-pointer text-xs text-center mt-2">Looking to login?</p>
                     </Link>
+                    <Link href="/verify-email">
+                        <p className="text-blue-500 hover:underline cursor-pointer text-xs text-center mt-2">Looking to verify your email?</p>
+                    </Link>
                 </div>
             </div>
   </>

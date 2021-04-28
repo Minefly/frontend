@@ -20,7 +20,7 @@ const DashboardLayout: FC<LayoutProps> = (props) => {
     return (
         <>
             <NavBar
-                className="left-auto w-full md:w-full-14"
+                className="!left-auto w-full md:w-full-14"
                 sidebarOpen={[sidebarOpen, setSidebarOpen]}
                 hidden={[hidden, setHidden]}
             />

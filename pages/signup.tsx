@@ -48,7 +48,7 @@ const SignupForm = () => {
     return (
         <>
             <div className="relative flex flex-grow justify-center items-center bg-gray-800">
-                <div className="bg-gray-900 rounded shadow-2xl p-2">
+                <div className="card !bg-gray-900">
                     <h2 className="text-lg font-semibold text-center">
                         Sign up
                     </h2>
@@ -58,7 +58,7 @@ const SignupForm = () => {
                     >
                         <label
                             htmlFor="email"
-                            className="text-gray-300 text-sm pl-2"
+                            className="text-gray-300 text-sm"
                         >
                             Email
                         </label>
@@ -67,14 +67,11 @@ const SignupForm = () => {
                             id="email"
                             name="fname"
                             ref={email}
-                            className="bg-gray-850 focus:outline-none rounded shadow px-2 py-1 w-80 "
+                            className="input mb-4"
                             required
                         />
 
-                        <label
-                            htmlFor="pass"
-                            className="text-gray-300 text-sm pl-2 mt-3"
-                        >
+                        <label htmlFor="pass" className="text-gray-300 text-sm">
                             Password
                         </label>
                         <input
@@ -82,10 +79,10 @@ const SignupForm = () => {
                             id="pass"
                             ref={password}
                             name="lname"
-                            className="bg-gray-850 focus:outline-none rounded shadow px-2 py-1 w-80 "
+                            className="input mb-4"
                             required
                         />
-                        <p className="text-gray-300 text-sm">
+                        <p className="text-gray-300 text-sm mb-4">
                             By signing up you agree to the Privacy Policy and
                             the Terms of Service
                         </p>
@@ -100,11 +97,12 @@ const SignupForm = () => {
                             onVerify={setToken}
                             ref={captchaRef}
                         ></HCaptcha>
-                        <input
+                        <button
                             type="submit"
-                            value="Sign up"
-                            className="btn btn-filled btn--primary mt-3"
-                        />
+                            className="btn btn-filled btn--primary mt-4"
+                        >
+                            Sign up
+                        </button>
                     </form>
 
                     <Link href="/login">

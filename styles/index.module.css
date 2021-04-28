@@ -1,26 +1,26 @@
 .img-1 {
-  background-image: linear-gradient(
-      rgba(0, 23, 238, 0.63),
-      rgba(48, 0, 239, 0.4)
-    ),
-    url("../public/trees.jpg");
-  color: red;
+    background-image: linear-gradient(
+            rgba(0, 23, 238, 0.63),
+            rgba(48, 0, 239, 0.4)
+        ),
+        url("../public/trees.jpg");
+    color: white;
 }
 
 .img-2 {
-  background-image: linear-gradient(
-      rgba(0, 23, 238, 0.63),
-      rgba(48, 0, 239, 0.4)
-    ),
-    url("../public/trees2.png");
-  color: red;
+    background-image: linear-gradient(
+            rgba(0, 23, 238, 0.63),
+            rgba(48, 0, 239, 0.4)
+        ),
+        url("../public/trees2.png");
+    color: white;
 }
 
 .img-3 {
-  background-image: linear-gradient(
-      rgba(0, 23, 238, 0.63),
-      rgba(48, 0, 239, 0.4)
-    ),
-    url("../public/trees3.png");
-  color: red;
+    background-image: linear-gradient(
+            rgba(0, 23, 238, 0.63),
+            rgba(48, 0, 239, 0.4)
+        ),
+        url("../public/trees3.png");
+    color: white;
 }

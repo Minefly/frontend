@@ -27,7 +27,7 @@ module.exports = {
                 secondary: colors.pink,
                 violet: colors.violet,
                 gray: {
-                    850: "#1b2332",
+                    850: "#171f2e",
                 },
             },
             inset: {

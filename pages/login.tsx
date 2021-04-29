@@ -10,13 +10,13 @@ const login = () => {
                 <title>Login | Minefly</title>
             </Head>
             <NavBar />
-            <div className="relative flex flex-grow justify-center items-center bg-gray-800">
-                <div className="card !bg-gray-900">
+            <div className="relative flex flex-grow justify-center items-center">
+                <div className="card dark:!bg-gray-900 w-1/5">
                     <h2 className="text-lg font-semibold text-center">Login</h2>
                     <form className="mx-6 my-3 flex flex-col">
                         <label
                             htmlFor="email"
-                            className="text-gray-300 text-sm"
+                            className="dark:text-gray-300 text-sm"
                         >
                             Email
                         </label>
@@ -28,7 +28,10 @@ const login = () => {
                             required
                         />
 
-                        <label htmlFor="pass" className="text-gray-300 text-sm">
+                        <label
+                            htmlFor="pass"
+                            className="dark:text-gray-300 text-sm"
+                        >
                             Password
                         </label>
                         <input

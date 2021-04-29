@@ -47,8 +47,8 @@ const SignupForm = () => {
     }
     return (
         <>
-            <div className="relative flex flex-grow justify-center items-center bg-gray-800">
-                <div className="card !bg-gray-900">
+            <div className="relative flex flex-grow justify-center items-center">
+                <div className="card dark:!bg-gray-900 w-1/5">
                     <h2 className="text-lg font-semibold text-center">
                         Sign up
                     </h2>
@@ -58,7 +58,7 @@ const SignupForm = () => {
                     >
                         <label
                             htmlFor="email"
-                            className="text-gray-300 text-sm"
+                            className="dark:text-gray-300 text-sm"
                         >
                             Email
                         </label>
@@ -71,7 +71,10 @@ const SignupForm = () => {
                             required
                         />
 
-                        <label htmlFor="pass" className="text-gray-300 text-sm">
+                        <label
+                            htmlFor="pass"
+                            className="dark:text-gray-300 text-sm"
+                        >
                             Password
                         </label>
                         <input
@@ -82,7 +85,7 @@ const SignupForm = () => {
                             className="input mb-4"
                             required
                         />
-                        <p className="text-gray-300 text-sm mb-4">
+                        <p className="dark:text-gray-300 text-sm mb-4">
                             By signing up you agree to the Privacy Policy and
                             the Terms of Service
                         </p>

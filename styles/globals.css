@@ -129,6 +129,6 @@
     }
 
     .input {
-        @apply outline-none px-4 py-2 rounded-md shadow-inner text-base bg-gray-850;
+        @apply outline-none px-4 py-2 rounded-md shadow-inner text-base dark:bg-gray-850;
     }
 }

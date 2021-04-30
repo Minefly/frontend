@@ -15,7 +15,7 @@ const Server: FC = () => {
 					<div className="p-8">
 						<h1 className="text-lg font-bold">
 							{serverName}{" "}
-							<span className="font-normal text-base chip bg-green-600 text-white">
+							<span className="font-normal text-base chip bg-green-600 text-gray-200">
 								Online
 							</span>
 						</h1>

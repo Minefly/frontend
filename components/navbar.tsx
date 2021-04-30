@@ -82,8 +82,8 @@ const NavBar: FC<NavBarProps> = (props) => {
                 className={
                     "fixed z-40 left-0 top-0 right-0 transition-all h-14 " +
                     (opaque || sidebarOpen
-                        ? "bg-gray-100 dark:bg-gray-850 text-black dark:text-white "
-                        : "text-white ") +
+                        ? "bg-gray-100 dark:bg-gray-850 text-black dark:text-gray-200 "
+                        : "text-gray-200 ") +
                     componentProps.className
                 }
             >

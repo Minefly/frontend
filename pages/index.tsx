@@ -5,7 +5,7 @@ import Card from "../components/card";
 import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 import Link from "next/link";
-import {API_URL } from "./constants";
+import { API_URL } from "./constants";
 
 const Home = () => {
     const nOfImages = 3;
@@ -51,18 +51,16 @@ const Home = () => {
                         } ${currentImg === 1 && isMoving ? "exiting" : ""}`}
                     />
                 </div>
-                <div className="text-center lg:text-left text-white font-extrabold absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 container">
+                <div className="text-center lg:text-left text-gray-200 font-extrabold absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 container">
                     <h1 className="text-2xl sm:text-4xl xl:text-7xl my-4 text-primary-50">
                         Free, community-first
                         <br />
                         Minecraft server hosting
                     </h1>
                     <Link href="/dashboard/home">
-                    <a
-                        className="mt-4 btn btn-big btn-outlined w-max select-none"
-                    >
-                        Get started
-                    </a>
+                        <a className="mt-4 btn btn-big btn-outlined w-max select-none">
+                            Get started
+                        </a>
                     </Link>
                 </div>
             </div>
@@ -78,7 +76,7 @@ const Home = () => {
                     </Card>
                     <Card
                         title="Community First"
-                        className="my-4 lg:relative lg:bottom-4 md:flex-1 px-8 pt-10 pb-12 md:mx-4 lg:my-0 text-center"
+                        className="my-4 md:relative md:bottom-4 md:flex-1 px-8 pt-10 pb-12 md:mx-4 lg:my-0 text-center"
                     >
                         We value our community and strive to make our services
                         the best they can be for our users. We take user input

@@ -11,10 +11,10 @@ const Page404 = () => {
             </Head>
             <NavBar />
             <div className="container text-center my-52">
-                <h1 className="font-extrabold text-3xl sm:text-5xl xl:text-7xl my-4 dark:text-white">
+                <h1 className="font-extrabold text-3xl sm:text-5xl xl:text-7xl my-4 dark:text-gray-200">
                     Aw, snap!
                 </h1>
-                <h2 className="font-semibold text-xl sm:text-2xl xl:text-4xl my-4 dark:text-white">
+                <h2 className="font-semibold text-xl sm:text-2xl xl:text-4xl my-4 dark:text-gray-200">
                     404 Not Found
                 </h2>
                 <p className="sm:text-lg xl:text-xl my-4">
@@ -23,11 +23,9 @@ const Page404 = () => {
                     administrator.
                 </p>
                 <Link href="/">
-                <a
-                    className="mt-4 btn btn-outlined btn--accent select-none"
-                >
-                    Back to homepage
-                </a>
+                    <a className="mt-4 btn btn-outlined btn--accent select-none">
+                        Back to homepage
+                    </a>
                 </Link>
             </div>
             <Footer />

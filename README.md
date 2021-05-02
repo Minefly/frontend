@@ -43,6 +43,6 @@ Select your repo (should be like \<yourname>/frontend) and hit clone!
 4. Open the VSC terminal. This can be done by pressing Ctrl + Shift + \`. If you can't use keybinds for some reason, right click on the project, click "Open command Prompt" and copy this into the searchbar `Terminal: Create New Integrated Terminal (In Active Workspace)`. Click the first (and only) result.
 5. Type `yarn dev` into the terminal, and it should look like below (this may take a while!)
 
-![image](https://user-images.githubusercontent.com/69743171/111860756-f2b9bd00-8906-11eb-951d-d770c3e8b042.png)
+![image](https://user-images.githubusercontent.com/69743171/116803744-33dce980-aacf-11eb-9c6e-6c2ff09911ea.png)
 
 Join our [meta server](https://discord.gg/jFKUfAeVGQ) if you have trouble!

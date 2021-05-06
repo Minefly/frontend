@@ -36,7 +36,7 @@ const SignupForm = () => {
             password: password.current!!.value,
             token,
         };
-        const resp = await fetch(API_URL + "/signup/", {
+        const resp = await fetch(API_URL + "auth/signup", {
             method: "POST",
             body: JSON.stringify(signupObj),
         });

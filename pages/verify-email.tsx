@@ -24,7 +24,7 @@ const VerificationForm = () => {
     const [error, setError] = useState<string | null>(null);
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
-        const resp = await fetch(API_URL + "/signup/verify-email",
+        const resp = await fetch(API_URL + "/auth/verify-email",
             {
                 method: "POST",
                 body: verCode.current!!.value

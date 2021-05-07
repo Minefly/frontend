@@ -15,16 +15,17 @@ const login = () => {
   const rememberMe = useRef<HTMLInputElement>(null);
     async function handleSubmit(event: FormEvent) {
       event.preventDefault();
-        if (token == null) {
+        console.log(process.env.NODE_ENV, setToken("10"), token)
+        if (token == null && process.env.NODE_ENV == "production") {
             setError("Please complete the captcha!");
             return;
         }
         const loginObj = {
             email: email.current!!.value,
             password: password.current!!.value,
-          remember_me: rememberMe.current!!.value,
-            token
-        };
+          remember_me: rememberMe.current!!.value == "on",
+            token: process.env.NODE_ENV == "production" ? token : "e"
+      };
         const resp = await fetch(API_URL + "/auth/login", {
             method: "POST",
             body: JSON.stringify(loginObj),
@@ -78,7 +79,7 @@ const login = () => {
                 ref={password}
               />
               <span><label htmlFor="remember-me" className="dark:text-gray-300 text-sm">Remember me?</label>
-              <input type="checkbox" id="remember-me" name="rname"></input></span>
+              <input type="checkbox" id="remember-me" name="rname" ref={rememberMe}></input></span>
                                       {error != null ? (
                             <span /** Needs to be styled */>{error}</span>
                         ) : (

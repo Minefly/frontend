@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { API_URL } from "./constants";
+import { useRouter } from "next/router";
 
 const signup = () => {
     return (
@@ -20,6 +21,7 @@ const signup = () => {
 };
 
 const SignupForm = () => {
+  const router = useRouter();
     const email = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
     const captchaRef = useRef(null);
@@ -27,15 +29,15 @@ const SignupForm = () => {
     const [error, setError] = useState<string | null>(null);
     async function handleSubmit(event: FormEvent) {
       event.preventDefault();
-      setToken("lol")
-        if (token == null) {
+        console.log(process.env.NODE_ENV, setToken("10"), token)
+        if (token == null && process.env.NODE_ENV == "production") {
             setError("Please complete the captcha!");
             return;
         }
         const signupObj = {
             email: email.current!!.value,
             password: password.current!!.value,
-            token,
+            token: process.env.NODE_ENV == "production" ? token : "e"
         };
         const resp = await fetch(API_URL + "/auth/signup", {
             method: "POST",
@@ -45,6 +47,7 @@ const SignupForm = () => {
             setError(`${resp.statusText} ${await resp.text()}`);
             return;
         } else {
+          router.push("/auth/verify-email")
             //TODO: Move them to verify-email and send them a message saying they need to verify the mail
         }
     }

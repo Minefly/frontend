@@ -32,12 +32,14 @@ const VerificationForm = () => {
         if (!resp.ok) {
             setError(`${resp.statusText} ${await resp.text()}` )
             return;
+        } else {
+        //TODO: Style everything and congratulate them for creating an account
         }
     }
   return <>
                 <div className="relative flex flex-grow justify-center items-center bg-gray-800">
                 <div className="bg-gray-900 rounded shadow-2xl p-2">
-                    <h2 className="text-lg font-semibold text-center">Sign up</h2>
+                    <h2 className="text-lg font-semibold text-center">Verify Email</h2>
                     <form className="mx-6 my-3 flex flex-col" onSubmit={handleSubmit}>
                         <label 
                             htmlFor="ver-code" 
@@ -52,9 +54,8 @@ const VerificationForm = () => {
                             required
                         />
 
-                        <p className="text-gray-300 text-sm">By signing up you agree to the Privacy Policy and the Terms of Service</p>
                         {error != null ? <span /** Needs to be styled */>{error}</span> : ''}
-                        <input type="submit" value="Sign up" className="btn btn-filled btn--primary mt-3" />
+                        <input type="submit" value="Verify" className="btn btn-filled btn--primary mt-3" />
                     </form>
                     
                     <Link href="/login">

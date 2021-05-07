@@ -2,8 +2,40 @@ import Head from "next/head";
 import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 import Link from "next/link";
+import { FormEvent, useRef, useState } from "react";
+import { API_URL } from "./constants";
 
 const login = () => {
+      const email = useRef<HTMLInputElement>(null);
+    const password = useRef<HTMLInputElement>(null);
+    /*const captchaRef = useRef(null);
+    TODO: hcaptcha | const [token, setToken] = useState<string | null>(null);
+    */
+  const [error, setError] = useState<string | null>(null);
+    async function handleSubmit(event: FormEvent) {
+      event.preventDefault();
+      /*setToken("lol")
+        if (token == null) {
+            setError("Please complete the captcha!");
+            return;
+        }*/
+        const loginObj = {
+            email: email.current!!.value,
+            password: password.current!!.value,
+            stay_logged_in: true
+        };
+        const resp = await fetch(API_URL + "/auth/login", {
+            method: "POST",
+            body: JSON.stringify(loginObj),
+        });
+        if (!resp.ok) {
+            setError(`${resp.statusText} ${await resp.text()}`);
+            return;
+        } else {
+            //TODO: Move them to verify-email and send them a message saying they need to verify the mail
+        }
+  }
+  //TODO: Add a 'remember me' button
     return (
         <>
             <Head>
@@ -13,7 +45,7 @@ const login = () => {
             <div className="relative flex flex-grow justify-center items-center">
                 <div className="card dark:!bg-gray-900 w-max">
                     <h2 className="text-lg font-semibold text-center">Login</h2>
-                    <form className="mx-6 my-3 flex flex-col">
+                    <form className="mx-6 my-3 flex flex-col" onSubmit={handleSubmit}>
                         <label
                             htmlFor="email"
                             className="dark:text-gray-300 text-sm"
@@ -25,7 +57,9 @@ const login = () => {
                             id="email"
                             name="fname"
                             className="input mb-4"
-                            required
+                required
+                ref={email}
+              
                         />
 
                         <label
@@ -39,7 +73,8 @@ const login = () => {
                             id="pass"
                             name="lname"
                             className="input"
-                            required
+                required
+                ref={password}
                         />
 
                         <button

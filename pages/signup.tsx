@@ -26,7 +26,8 @@ const SignupForm = () => {
     const [token, setToken] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     async function handleSubmit(event: FormEvent) {
-        event.preventDefault();
+      event.preventDefault();
+      setToken("lol")
         if (token == null) {
             setError("Please complete the captcha!");
             return;
@@ -36,13 +37,15 @@ const SignupForm = () => {
             password: password.current!!.value,
             token,
         };
-        const resp = await fetch(API_URL + "auth/signup", {
+        const resp = await fetch(API_URL + "/auth/signup", {
             method: "POST",
             body: JSON.stringify(signupObj),
         });
         if (!resp.ok) {
             setError(`${resp.statusText} ${await resp.text()}`);
             return;
+        } else {
+            //TODO: Move them to verify-email and send them a message saying they need to verify the mail
         }
     }
     return (
@@ -112,8 +115,8 @@ const SignupForm = () => {
                         <p className="text-blue-500 hover:underline cursor-pointer text-xs text-center mt-2">
                             Looking to login?
                         </p>
-                    </Link>
-                    <Link href="/verify-email">
+            </Link>
+                                <Link href="/verify-email">
                         <p className="text-blue-500 hover:underline cursor-pointer text-xs text-center mt-2">
                             Looking to verify your email?
                         </p>

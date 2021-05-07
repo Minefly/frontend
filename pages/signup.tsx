@@ -98,7 +98,6 @@ const SignupForm = () => {
                             ""
                         )}
                         <HCaptcha
-                            theme="dark"
                             sitekey={process.env["HCAPTCHA.SITEKEY"] ?? ""}
                             onVerify={setToken}
                             ref={captchaRef}

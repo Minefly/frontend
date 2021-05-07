@@ -4,25 +4,26 @@ import NavBar from "../components/navbar";
 import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
 import { API_URL } from "./constants";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 
 const login = () => {
       const email = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
-    /*const captchaRef = useRef(null);
-    TODO: hcaptcha | const [token, setToken] = useState<string | null>(null);
-    */
+    const captchaRef = useRef(null);
+    const [token, setToken] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const rememberMe = useRef<HTMLInputElement>(null);
     async function handleSubmit(event: FormEvent) {
       event.preventDefault();
-      /*setToken("lol")
         if (token == null) {
             setError("Please complete the captcha!");
             return;
-        }*/
+        }
         const loginObj = {
             email: email.current!!.value,
             password: password.current!!.value,
-            stay_logged_in: true
+          remember_me: rememberMe.current!!.value,
+            token
         };
         const resp = await fetch(API_URL + "/auth/login", {
             method: "POST",
@@ -32,7 +33,7 @@ const login = () => {
             setError(`${resp.statusText} ${await resp.text()}`);
             return;
         } else {
-            //TODO: Move them to verify-email and send them a message saying they need to verify the mail
+            //TODO: Move them to the dashboard
         }
   }
   //TODO: Add a 'remember me' button
@@ -75,8 +76,20 @@ const login = () => {
                             className="input"
                 required
                 ref={password}
-                        />
+              />
+              <span><label htmlFor="remember-me" className="dark:text-gray-300 text-sm">Remember me?</label>
+              <input type="checkbox" id="remember-me" name="rname"></input></span>
+                                      {error != null ? (
+                            <span /** Needs to be styled */>{error}</span>
+                        ) : (
+                            ""
+                        )}          
+              <HCaptcha
 
+                            sitekey={process.env["HCAPTCHA.SITEKEY"] ?? ""}
+                            onVerify={setToken}
+                            ref={captchaRef}
+                        ></HCaptcha>
                         <button
                             type="submit"
                             className="btn btn-filled btn--primary mt-3"

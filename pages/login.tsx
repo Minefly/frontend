@@ -11,7 +11,7 @@ const login = () => {
             </Head>
             <NavBar />
             <div className="relative flex flex-grow justify-center items-center">
-                <div className="card dark:!bg-gray-900 w-1/5">
+                <div className="card dark:!bg-gray-900 w-max">
                     <h2 className="text-lg font-semibold text-center">Login</h2>
                     <form className="mx-6 my-3 flex flex-col">
                         <label

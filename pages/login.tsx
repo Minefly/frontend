@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
 import { API_URL } from "./constants";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
+import axios from 'axios';
 
 const login = () => {
       const email = useRef<HTMLInputElement>(null);
@@ -26,14 +27,17 @@ const login = () => {
           remember_me: rememberMe.current!!.value == "on",
             token: process.env.NODE_ENV == "production" ? token : "e"
       };
-        const resp = await fetch(API_URL + "/auth/login", {
-            method: "POST",
-            body: JSON.stringify(loginObj),
+      const resp = await axios.post(API_URL + "/auth/login", loginObj,
+        {
+          withCredentials: true
         });
-        if (!resp.ok) {
-            setError(`${resp.statusText} ${await resp.text()}`);
+
+        if (resp.status != 200) {
+            setError(`${resp.statusText} ${await resp.data}`);
             return;
         } else {
+          const body = resp.data;
+          console.log(body);
             //TODO: Move them to the dashboard
         }
   }

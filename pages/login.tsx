@@ -6,6 +6,7 @@ import { FormEvent, useRef, useState } from "react";
 import { API_URL } from "./constants";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import axios from 'axios';
+import { LoginResult, useAuthStore } from "../store/auth";
 
 
 const login = () => {
@@ -36,11 +37,13 @@ const login = () => {
         });
 
         if (resp.status != 200) {
-            setError(`${resp.statusText} ${await resp.data}`);
+            setError(`${resp.statusText} ${resp.data}`);
             return;
         } else {
-          const body = resp.data;
-          console.log(body);
+
+          let setLoginData = useAuthStore(state => state.setLoginData);
+          const body: LoginResult = resp.data;
+          setLoginData(body);
             //TODO: Move them to the dashboard
         }
   }

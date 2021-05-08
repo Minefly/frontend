@@ -58,7 +58,7 @@ const SignupForm = ({passes}: InferGetStaticPropsType<typeof getStaticProps>) =>
             return;
         } else {
           router.push("/verify-email")
-            //TODO: Move them to verify-email and send them a message saying they need to verify the mail
+            //TODO: Send them a message saying they need to verify the mail
         }
   }
   function checkPassword(event: KeyboardEvent) {

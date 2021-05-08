@@ -54,7 +54,7 @@ const VerificationForm = () => {
                             required
                         />
 
-                        {error != null ? <span /** Needs to be styled */>{error}</span> : ''}
+                        {error != null ? <span /**TODO: Needs to be styled */>{error}</span> : ''}
                         <input type="submit" value="Verify" className="btn btn-filled btn--primary mt-3" />
                     </form>
                     

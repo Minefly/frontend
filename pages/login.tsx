@@ -7,6 +7,7 @@ import { API_URL } from "./constants";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import axios from 'axios';
 
+
 const login = () => {
       const email = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
@@ -14,6 +15,8 @@ const login = () => {
     const [token, setToken] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const rememberMe = useRef<HTMLInputElement>(null);
+
+
     async function handleSubmit(event: FormEvent) {
       event.preventDefault();
         console.log(process.env.NODE_ENV, setToken("10"), token)
@@ -85,7 +88,7 @@ const login = () => {
               <span><label htmlFor="remember-me" className="dark:text-gray-300 text-sm">Remember me?</label>
               <input type="checkbox" id="remember-me" name="rname" ref={rememberMe}></input></span>
                                       {error != null ? (
-                            <span /** Needs to be styled */>{error}</span>
+                            <span /**TODO: Needs to be styled */>{error}</span>
                         ) : (
                             ""
                         )}          

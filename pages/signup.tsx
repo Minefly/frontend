@@ -2,28 +2,38 @@ import Head from "next/head";
 import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 import Link from "next/link";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, KeyboardEvent, useRef, useState } from "react";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { API_URL } from "./constants";
 import { useRouter } from "next/router";
+import axios from "axios";
+import { InferGetStaticPropsType } from "next";
 
-const signup = () => {
+type Passes = string[];
+
+export const getStaticProps = async () => {
+        const tenkpasswords = await axios.get("https://raw.githubusercontent.com/danielmiessler/SecLists/master/Passwords/Common-Credentials/10k-most-common.txt");
+  let tenkpass: Passes = tenkpasswords.data.split("\n")
+  return { props: {passes: tenkpass } }
+}
+
+const signup = ({passes}: InferGetStaticPropsType<typeof getStaticProps>) => {
     return (
         <>
             <Head>
                 <title>Sign Up | Minefly</title>
             </Head>
             <NavBar />
-            <SignupForm />
+        <SignupForm passes={ passes}/>
             <Footer />
         </>
     );
 };
 
-const SignupForm = () => {
+const SignupForm = ({passes}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
     const email = useRef<HTMLInputElement>(null);
-    const password = useRef<HTMLInputElement>(null);
+    const [password, setPassword] = useState<string| null>(null);
     const captchaRef = useRef(null);
     const [token, setToken] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
@@ -36,7 +46,7 @@ const SignupForm = () => {
         }
         const signupObj = {
             email: email.current!!.value,
-            password: password.current!!.value,
+            password,
             token: process.env.NODE_ENV == "production" ? token : "e"
         };
         const resp = await fetch(API_URL + "/auth/signup", {
@@ -50,7 +60,20 @@ const SignupForm = () => {
           router.push("/verify-email")
             //TODO: Move them to verify-email and send them a message saying they need to verify the mail
         }
+  }
+  function checkPassword(event: KeyboardEvent) {
+    let pass = event.target.value as string;
+    if (pass.length < 8) {
+      setError("The password is too short!")
+      return
     }
+    if (passes.includes(pass)) {
+      setError("The password is among the top 10,000 most used passwords.\nPlease choose a more secure one.")
+      return
+    }
+    setError("")
+    setPassword(pass);
+  }
     return (
         <>
             <div className="relative flex flex-grow justify-center items-center">
@@ -75,6 +98,7 @@ const SignupForm = () => {
                             ref={email}
                             className="input mb-4"
                             required
+                            
                         />
 
                         <label
@@ -86,17 +110,18 @@ const SignupForm = () => {
                         <input
                             type="password"
                             id="pass"
-                            ref={password}
                             name="lname"
                             className="input mb-4"
-                            required
+                required
+                onKeyUp={checkPassword}
+
                         />
                         <p className="dark:text-gray-300 text-sm mb-4">
                             By signing up you agree to the Privacy Policy and
                             the Terms of Service
                         </p>
                         {error != null ? (
-                            <span /** Needs to be styled */>{error}</span>
+                            <span /**TODO: Needs to be styled */>{error}</span>
                         ) : (
                             ""
                         )}

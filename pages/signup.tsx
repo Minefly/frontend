@@ -62,7 +62,8 @@ const SignupForm = ({passes}: InferGetStaticPropsType<typeof getStaticProps>) =>
         }
   }
   function checkPassword(event: KeyboardEvent) {
-    let pass = event.target.value as string;
+    let elem = event.target as HTMLInputElement;
+    let pass = elem.value;
     if (pass.length < 8) {
       setError("The password is too short!")
       return

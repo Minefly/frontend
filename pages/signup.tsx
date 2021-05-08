@@ -47,7 +47,7 @@ const SignupForm = () => {
             setError(`${resp.statusText} ${await resp.text()}`);
             return;
         } else {
-          router.push("/auth/verify-email")
+          router.push("/verify-email")
             //TODO: Move them to verify-email and send them a message saying they need to verify the mail
         }
     }

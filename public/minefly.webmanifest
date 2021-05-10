@@ -1,0 +1,16 @@
+{
+    "name": "Minefly, Free Server Hosting",
+    "short_name": "Minefly",
+    "description": "Free, community-first Minecraft server hosting",
+    "icons": [
+        {
+            "src": "/minefly-rocket-dynamic.svg",
+            "sizes": "1028x1028",
+            "type": "image/svg"
+        }
+    ],
+    "start_url": "/",
+    "display": "fullscreen",
+    "theme_color": "#171F2E",
+    "background_color": "#1E293B"
+}

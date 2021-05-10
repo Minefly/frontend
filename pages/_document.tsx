@@ -19,6 +19,7 @@ export default class MineflyDocument extends Document {
                         rel="shortcut icon"
                         href="/minefly-rocket-dynamic.svg"
                     />
+                    <link rel="manifest" href="/minefly.webmanifest" />
                 </Head>
                 <body>
                     <Main />

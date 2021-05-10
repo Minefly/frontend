@@ -6,69 +6,92 @@ import { useAuthStore } from "../store/auth";
 import { useState } from "react";
 
 export default function profile() {
-	const isLoggedIn = useAuthStore(state => state.loggedIn);
-	const uuid = "b597aac0011f41d0bab1edc1b809016e" //replace with real uuid
-	const name = "Imposter" //replace with real name
+    const isLoggedIn = useAuthStore((state) => state.loggedIn);
+    const uuid = "b597aac0011f41d0bab1edc1b809016e"; //replace with real uuid
+    const name = "Imposter"; //replace with real name
 
-	const [passOpen, setPassOpen] = useState(false)
+    const [passOpen, setPassOpen] = useState(false);
 
-	if (!isLoggedIn == false) { //remove the "!" when ready for prod
-		return ( //if theres a js way to do this, pls do it
-			<>
-				<Head>
-					<meta httpEquiv="Refresh" content="0; URL=/401" />
-				</Head>
-			</>
-		)
-	}
-	else {
-		return (
-			<>
-				<NavBar contained />
-					<div className="flex flex-grow flex-col lg:flex-row mx-auto container px-5 md:px-20 my-10">
-						<div className="w-96 flex flex-rwo lg:flex-col">
-							<img className="rounded-full w-72 h-72" src={"https://crafatar.com/avatars/" + uuid + "?overlay"}/>
-							<div className="h-full flex flex-col items-center justify-center mt-10 ml-10 lg:mt-0 lg:ml-0">
-								<h1 className="text-2xl fonst-semibold">{name + "'s Profile"}</h1>
-								<button className="btn btn-filled btn--accent mt-6">Dashboard</button>
-							</div>
-						</div>
-						<div className="mt-10 lg:mt-0 lg:ml-10 w-full bg-gray-850 rounded shadow">
-							<form className="flex flex-grow flex-col h-full  m-6">
-								<div className="flex flex-col md:flex-row">
-									<div className="w-full p-4">
-										<label className="relative">
-											Email
-											<input type="email" className="rounded-lg bg-gray-200 dark:bg-gray-700 w-full h-9 p-1 tracking-widest focus:outline-none" maxLength={24} />
-											<div className="absolute inset" />
-										</label>
-										<label className="mt-16">
-											Password
-											<input type="password" className="rounded-lg bg-gray-200 dark:bg-gray-700 w-full h-9 p-1 tracking-widest focus:outline-none" maxLength={24} />
-										</label>
-										<p 
-											className="text-sm mb-2 text-blue-500 hover:underline select-none cursor-pointer"
-											onClick={() => setPassOpen(!passOpen)}
-										>Change Password?</p>
-										<label className={"mt-16 " + (passOpen ? "" : "hidden")}>
-											New password
-											<input type="password" className="rounded-lg bg-gray-200 dark:bg-gray-700 w-full h-9 p-1 tracking-widest focus:outline-none" maxLength={24} />
-										</label>
-									</div>
-									<div className="w-full p-4">
-										<label className="">
-											Phone Number
-											<input type="text" className="rounded-lg bg-gray-200 dark:bg-gray-700 w-full h-9 p-1 tracking-widest focus:outline-none" maxLength={24} />
-										</label>
-										<button className="btn btn-outlined btn--primary mt-6">Enable 2fa</button>
-									</div>
-								</div>
-								<input type="submit" className="btn btn-filled btn--accent mt-6 cursor-pointer" />
-							</form>
-						</div>
-					</div>
-				<Footer />
-			</>
-		)
-	}
+    if (!isLoggedIn == false) {
+        //remove the "!" when ready for prod
+        return (
+            //if theres a js way to do this, pls do it
+            <>
+                <Head>
+                    <meta httpEquiv="Refresh" content="0; URL=/401" />
+                </Head>
+            </>
+        );
+    } else {
+        return (
+            <>
+                <NavBar contained />
+                <div className="flex flex-grow flex-col lg:flex-row container my-10 items-center md:items-stretch">
+                    <div className="text-center md:text-left flex flex-col md:flex-row md:items-center lg:flex-col lg:items-stretch lg:text-center">
+                        <img
+                            className="rounded-full w-72 h-auto"
+                            src={
+                                "https://crafatar.com/avatars/" +
+                                uuid +
+                                "?overlay"
+                            }
+                        />
+                        <div className="mt-6 md:mt-0 md:ml-12 lg:mt-6 lg:ml-0">
+                            <h2 className="text-2xl font-bold">
+                                {name}'s Account
+                            </h2>
+                            <Link href="/">
+                                <a className="btn btn-filled btn--accent mt-4">
+                                    Dashboard
+                                </a>
+                            </Link>
+                        </div>
+                    </div>
+                    <div className="lg:ml-10 mt-10 lg:mt-0 card w-full">
+                        <form className="grid grid-cols-2 w-full gap-8">
+                            <label className="col-span-2 md:col-span-1">
+                                Email
+                                <input
+                                    type="email"
+                                    className="input block w-full"
+                                />
+                            </label>
+                            <label className="col-span-2 md:col-span-1">
+                                Phone Number
+                                <input
+                                    type="tel"
+                                    className="input block w-full"
+                                />
+                            </label>
+                            <label className="col-span-2 md:col-span-1">
+                                Password
+                                <input
+                                    type="password"
+                                    className="input block w-full"
+                                />
+                            </label>
+                            <div>
+                                &nbsp;
+                                <button
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                    }}
+                                    className="btn btn-outlined btn--primary block"
+                                >
+                                    Enable 2FA
+                                </button>
+                            </div>
+                            <button
+                                type="submit"
+                                className="col-span-2 btn btn-filled btn--accent"
+                            >
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <Footer />
+            </>
+        );
+    }
 }

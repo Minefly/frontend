@@ -57,7 +57,7 @@ const Home = () => {
                         <br />
                         Minecraft server hosting
                     </h1>
-                    <Link href="/dashboard/home">
+                    <Link href="/dashboard">
                         <a className="mt-4 btn btn-big btn-outlined w-max select-none">
                             Get started
                         </a>

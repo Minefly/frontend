@@ -1,17 +1,11 @@
 import { useTheme } from "next-themes";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
-import {
-    Dispatch,
-    FC,
-    SetStateAction,
-    useContext,
-    useEffect,
-    useState,
-} from "react";
+import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 
 //@ts-ignore
 import Logo from "../public/minefly-rocket.svg";
+import { useAuthStore } from "../store/auth";
 import Sidebar from "./sidebar";
 
 export interface NavBarProps {
@@ -47,6 +41,8 @@ const NavBar: FC<NavBarProps> = (props) => {
         else setHidden(false);
         setTimeout(() => setSidebarOpen(!sidebarOpen), 0);
     };
+
+    const isLoggedIn = useAuthStore((state) => state.loggedIn);
 
     const { theme, setTheme } = useTheme();
 
@@ -113,34 +109,44 @@ const NavBar: FC<NavBarProps> = (props) => {
                             >
                                 Switch Theme
                             </button>
-                            <Link href="/login">
-                                <a
-                                    className={
-                                        "hidden md:block btn btn-outlined mx-2 " +
-                                        (opaque && "btn--accent")
-                                    }
-                                >
-                                    Login
-                                </a>
-                            </Link>
-                            <Link href="/signup">
-                                <a
-                                    className={
-                                        "hidden md:block btn ml-2 btn-filled " +
-                                        (opaque && "btn--accent")
-                                    }
-                                >
-                                    Sign Up
-                                </a>
-                            </Link>
-                            <button
-                                className="ml-4 focus:outline-none md:hidden"
-                                onClick={toggleSidebarOpen}
-                            >
-                                <div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
-                                <div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
-                                <div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
-                            </button>
+                            {isLoggedIn ? (
+                                <Link href="/dashboard">
+                                    <a className="btn btn-outlined btn--accent ml-2">
+                                        Dashboard
+                                    </a>
+                                </Link>
+                            ) : (
+                                <>
+                                    <Link href="/login">
+                                        <a
+                                            className={
+                                                "hidden md:block btn btn-outlined mx-2 " +
+                                                (opaque && "btn--accent")
+                                            }
+                                        >
+                                            Login
+                                        </a>
+                                    </Link>
+                                    <Link href="/signup">
+                                        <a
+                                            className={
+                                                "hidden md:block btn ml-2 btn-filled " +
+                                                (opaque && "btn--accent")
+                                            }
+                                        >
+                                            Sign Up
+                                        </a>
+                                    </Link>
+                                    <button
+                                        className="ml-4 focus:outline-none md:hidden"
+                                        onClick={toggleSidebarOpen}
+                                    >
+                                        <div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
+                                        <div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
+                                        <div className="bg-white w-5 h-0.5 my-1.5 rounded-full" />
+                                    </button>
+                                </>
+                            )}
                         </>
                     )}
                 </div>

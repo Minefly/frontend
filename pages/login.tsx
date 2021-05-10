@@ -5,22 +5,23 @@ import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
 import { API_URL } from "./constants";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
-import axios from 'axios';
+import axios from "axios";
 import { LoginResult, useAuthStore } from "../store/auth";
-
+import { Router, useRouter } from "next/router";
 
 const login = () => {
-      const email = useRef<HTMLInputElement>(null);
+    const email = useRef<HTMLInputElement>(null);
     const password = useRef<HTMLInputElement>(null);
     const captchaRef = useRef(null);
     const [token, setToken] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const rememberMe = useRef<HTMLInputElement>(null);
+    const [error, setError] = useState<string | null>(null);
+    const rememberMe = useRef<HTMLInputElement>(null);
 
+    const router = useRouter();
 
     async function handleSubmit(event: FormEvent) {
-      event.preventDefault();
-        console.log(process.env.NODE_ENV, setToken("10"), token)
+        event.preventDefault();
+        console.log(process.env.NODE_ENV, setToken("10"), token);
         if (token == null && process.env.NODE_ENV == "production") {
             setError("Please complete the captcha!");
             return;
@@ -28,26 +29,23 @@ const login = () => {
         const loginObj = {
             email: email.current!!.value,
             password: password.current!!.value,
-          remember_me: rememberMe.current!!.value == "on",
-            token: process.env.NODE_ENV == "production" ? token : "e"
-      };
-      const resp = await axios.post(API_URL + "/auth/login", loginObj,
-        {
-          withCredentials: true
+            remember_me: rememberMe.current!!.value == "on",
+            token: process.env.NODE_ENV == "production" ? token : "e",
+        };
+        const resp = await axios.post(API_URL + "/auth/login", loginObj, {
+            withCredentials: true,
         });
 
         if (resp.status != 200) {
             setError(`${resp.statusText} ${resp.data}`);
             return;
         } else {
-
-          let setLoginData = useAuthStore(state => state.setLoginData);
-          const body: LoginResult = resp.data;
-          setLoginData(body);
-            //TODO: Move them to the dashboard
+            let setLoginData = useAuthStore((state) => state.setLoginData);
+            const body: LoginResult = resp.data;
+            setLoginData(body);
+            router.push("/dashboard");
         }
-  }
-  //TODO: Add a 'remember me' button
+    }
     return (
         <>
             <Head>
@@ -55,9 +53,12 @@ const login = () => {
             </Head>
             <NavBar />
             <div className="relative flex flex-grow justify-center items-center">
-                <div className="card dark:!bg-gray-900 w-max">
+                <div className="card w-[30rem] max-w-full mx-8">
                     <h2 className="text-lg font-semibold text-center">Login</h2>
-                    <form className="mx-6 my-3 flex flex-col" onSubmit={handleSubmit}>
+                    <form
+                        className="mx-6 my-3 flex flex-col"
+                        onSubmit={handleSubmit}
+                    >
                         <label
                             htmlFor="email"
                             className="dark:text-gray-300 text-sm"
@@ -68,10 +69,9 @@ const login = () => {
                             type="email"
                             id="email"
                             name="fname"
-                            className="input mb-4"
-                required
-                ref={email}
-              
+                            className="input mb-4 mt-1"
+                            required
+                            ref={email}
                         />
 
                         <label
@@ -84,26 +84,36 @@ const login = () => {
                             type="password"
                             id="pass"
                             name="lname"
-                            className="input"
-                required
-                ref={password}
-              />
-              <span><label htmlFor="remember-me" className="dark:text-gray-300 text-sm">Remember me?</label>
-              <input type="checkbox" id="remember-me" name="rname" ref={rememberMe}></input></span>
-                                      {error != null ? (
+                            className="input mb-4 mt-1"
+                            required
+                            ref={password}
+                        />
+                        <label
+                            htmlFor="remember-me"
+                            className="dark:text-gray-300 text-sm mb-4"
+                        >
+                            <input
+                                type="checkbox"
+                                id="remember-me"
+                                name="rname"
+                                className="mr-2"
+                                ref={rememberMe}
+                            />
+                            Remember me?
+                        </label>
+                        {error != null ? (
                             <span /**TODO: Needs to be styled */>{error}</span>
                         ) : (
                             ""
-                        )}          
-              <HCaptcha
-
+                        )}
+                        <HCaptcha
                             sitekey={process.env["HCAPTCHA.SITEKEY"] ?? ""}
                             onVerify={setToken}
                             ref={captchaRef}
                         ></HCaptcha>
                         <button
                             type="submit"
-                            className="btn btn-filled btn--primary mt-3"
+                            className="btn btn-filled btn--primary mt-4"
                         >
                             Log in
                         </button>

@@ -98,7 +98,8 @@ export default function profile() {
                             <input
                                 type="radio"
                                 name="theme"
-                                onClick={() => {
+                                checked={theme === "light"}
+                                onChange={() => {
                                     setTheme("light");
                                 }}
                             />{" "}
@@ -108,7 +109,8 @@ export default function profile() {
                             <input
                                 type="radio"
                                 name="theme"
-                                onClick={() => {
+                                checked={theme === "dark"}
+                                onChange={() => {
                                     setTheme("dark");
                                 }}
                             />{" "}
@@ -118,7 +120,8 @@ export default function profile() {
                             <input
                                 type="radio"
                                 name="theme"
-                                onClick={() => {
+                                checked={theme === "system"}
+                                onChange={() => {
                                     setTheme("system");
                                 }}
                             />{" "}

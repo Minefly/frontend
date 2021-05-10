@@ -4,6 +4,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { useAuthStore } from "../store/auth";
 import { useState } from "react";
+import { useTheme } from "next-themes";
 
 export default function profile() {
     const isLoggedIn = useAuthStore((state) => state.loggedIn);
@@ -11,6 +12,8 @@ export default function profile() {
     const name = "Imposter"; //replace with real name
 
     const [passOpen, setPassOpen] = useState(false);
+
+    const { theme, setTheme } = useTheme();
 
     if (!isLoggedIn == false) {
         //remove the "!" when ready for prod
@@ -37,9 +40,9 @@ export default function profile() {
                             }
                         />
                         <div className="mt-6 md:mt-0 md:ml-12 lg:mt-6 lg:ml-0">
-                            <h2 className="text-2xl font-bold">
+                            <h1 className="text-2xl font-bold">
                                 {name}'s Account
-                            </h2>
+                            </h1>
                             <Link href="/">
                                 <a className="btn btn-filled btn--accent mt-4">
                                     Dashboard
@@ -88,6 +91,39 @@ export default function profile() {
                                 Submit
                             </button>
                         </form>
+                    </div>
+                    <div className="mt-4 card w-full">
+                        <h2 className="text-xl font-bold">Theme</h2>
+                        <div>
+                            <input
+                                type="radio"
+                                name="theme"
+                                onClick={() => {
+                                    setTheme("light");
+                                }}
+                            />{" "}
+                            Light
+                        </div>
+                        <div>
+                            <input
+                                type="radio"
+                                name="theme"
+                                onClick={() => {
+                                    setTheme("dark");
+                                }}
+                            />{" "}
+                            Dark
+                        </div>
+                        <div>
+                            <input
+                                type="radio"
+                                name="theme"
+                                onClick={() => {
+                                    setTheme("system");
+                                }}
+                            />{" "}
+                            System
+                        </div>
                     </div>
                 </div>
                 <Footer />

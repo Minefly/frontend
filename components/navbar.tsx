@@ -44,10 +44,6 @@ const NavBar: FC<NavBarProps> = (props) => {
 
     const isLoggedIn = useAuthStore((state) => state.loggedIn);
 
-    const { theme, setTheme } = useTheme();
-
-    const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark");
-
     if (router.asPath === "/")
         useEffect(() => {
             const scrollListener = () => setOpaque(window.pageYOffset > 20);
@@ -100,18 +96,9 @@ const NavBar: FC<NavBarProps> = (props) => {
                                 </a>
                             </Link>
                             <div className="flex-1" />
-                            <button
-                                className={
-                                    "hidden md:block btn mr-2 btn-filled " +
-                                    (opaque && "btn--accent")
-                                }
-                                onClick={toggleTheme}
-                            >
-                                Switch Theme
-                            </button>
                             {isLoggedIn ? (
                                 <Link href="/dashboard">
-                                    <a className="btn btn-outlined btn--accent ml-2">
+                                    <a className="btn btn-outlined btn--accent">
                                         Dashboard
                                     </a>
                                 </Link>
@@ -120,7 +107,7 @@ const NavBar: FC<NavBarProps> = (props) => {
                                     <Link href="/login">
                                         <a
                                             className={
-                                                "hidden md:block btn btn-outlined mx-2 " +
+                                                "hidden md:block btn btn-outlined mr-2 " +
                                                 (opaque && "btn--accent")
                                             }
                                         >

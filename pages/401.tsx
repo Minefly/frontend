@@ -3,11 +3,11 @@ import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 import Link from "next/link";
 
-const Page404 = () => {
+export default function Page401() {
     return (
         <>
             <Head>
-                <title>404 | Minefly</title>
+                <title>401 | Minefly</title>
             </Head>
             <NavBar />
             <div className="container text-center my-44">
@@ -15,10 +15,10 @@ const Page404 = () => {
                     Aw, snap!
                 </h1>
                 <h2 className="font-semibold text-xl sm:text-2xl xl:text-4xl my-4 dark:text-gray-200">
-                    404 Not Found
+                    401 Not Allowed
                 </h2>
                 <p className="sm:text-lg xl:text-xl my-4">
-                    It seems the page you were looking for could not be found.
+                    It seems the page you were looking for is hidden from public view.
                     If you believe this to be an error, <a href="https://github.com/Minefly/frontend/issues" className="text-blue-500 hover:underline">make an issue on github</a>.
                 </p>
                 <Link href="/">
@@ -37,5 +37,3 @@ const Page404 = () => {
         </>
     );
 };
-
-export default Page404;

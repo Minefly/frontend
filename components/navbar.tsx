@@ -125,6 +125,7 @@ const NavBar: FC<NavBarProps> = (props) => {
                                         </a>
                                     </Link>
                                     <button
+                                        aria-label="Menu"
                                         className="ml-4 focus:outline-none md:hidden"
                                         onClick={toggleSidebarOpen}
                                     >

@@ -23,6 +23,8 @@ const Footer: FC<FooterProps> = (props) => {
                 <div className="container flex justify-center">
                     <Link href="https://discord.minefly.org/">
                         <a
+                            rel="noopener"
+                            aria-label="Discord"
                             target="_blank"
                             className="relative w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-800 hover:bg-gray-400 dark:hover:bg-gray-700 focus:bg-gray-400 dark:focus:bg-gray-700 transition-colors focus:ring ring-gray-400 dark:ring-gray-700 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-850 mx-4"
                         >
@@ -31,6 +33,8 @@ const Footer: FC<FooterProps> = (props) => {
                     </Link>
                     <Link href="https://twitter.com/MineflyHost">
                         <a
+                            rel="noopener"
+                            aria-label="Twitter"
                             target="_blank"
                             className="relative w-12 h-12 rounded-full bg-gray-300 dark:bg-gray-800 hover:bg-gray-400 dark:hover:bg-gray-700 focus:bg-gray-400 dark:focus:bg-gray-700 transition-colors focus:ring ring-gray-400 dark:ring-gray-700 ring-offset-2 ring-offset-gray-100 dark:ring-offset-gray-850 mx-4"
                         >

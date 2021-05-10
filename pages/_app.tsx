@@ -4,7 +4,7 @@ import { MDXProvider, MDXProviderComponents } from "@mdx-js/react";
 import "../styles/globals.css";
 import Head from "next/head";
 import { ThemeProvider } from "next-themes";
-import { FC } from "react";
+import { FC, useEffect } from "react";
 
 interface Components extends MDXProviderComponents {
     title: FC;
@@ -124,6 +124,12 @@ const components: Components = {
 };
 
 function App({ Component, pageProps }: AppProps) {
+    useEffect(() => {
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/service-worker.js");
+        }
+    }, []);
+
     return (
         <ThemeProvider attribute="class">
             <div className="min-h-screen w-full dark:bg-gray-800 dark:text-gray-200 leading-relaxed overflow-x-hidden overflow-y-visible flex flex-col">

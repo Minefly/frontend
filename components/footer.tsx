@@ -44,7 +44,7 @@ const Footer: FC<FooterProps> = (props) => {
                 </div>
                 <div className="container text-center my-8">
                     <h2>
-                        &#169; Minefly 2021. <br />
+                        &#8482; Minefly 2021. <br />
                         All rights reserved.
                     </h2>
                 </div>

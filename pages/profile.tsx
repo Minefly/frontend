@@ -53,28 +53,22 @@ export default function profile() {
                     <div className="lg:ml-10 mt-10 lg:mt-0 w-full">
                         <div className="card w-full">
                             <form className="grid grid-cols-2 w-full gap-8">
-                                <div>
-                                    <label className="col-span-2 md:col-span-1">
-                                        Email
-                                    </label>
+                                <div className="col-span-2 md:col-span-1">
+                                    <label>Email</label>
                                     <input
                                         type="email"
                                         className="input block w-full"
                                     />
                                 </div>
-                                <div>
-                                    <label className="col-span-2 md:col-span-1">
-                                        Phone Number
-                                    </label>
+                                <div className="col-span-2 md:col-span-1">
+                                    <label>Phone Number</label>
                                     <input
                                         type="tel"
                                         className="input block w-full"
                                     />
                                 </div>
-                                <div>
-                                    <label className="col-span-2 md:col-span-1">
-                                        Password
-                                    </label>
+                                <div className="col-span-2 md:col-span-1">
+                                    <label>Password</label>
                                     <input
                                         type="password"
                                         className="input block w-full"

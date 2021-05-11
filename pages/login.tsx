@@ -8,6 +8,7 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import axios from "axios";
 import { LoginResult, useAuthStore } from "../store/auth";
 import { Router, useRouter } from "next/router";
+import Warning from "../components/warning";
 
 const login = () => {
     const email = useRef<HTMLInputElement>(null);
@@ -96,15 +97,15 @@ const login = () => {
                                 type="checkbox"
                                 id="remember-me"
                                 name="rname"
-                                className="mr-2"
+                                className="checkbox mr-2"
                                 ref={rememberMe}
                             />
                             Remember me?
                         </label>
-                        {error != null ? (
-                            <span /**TODO: Needs to be styled */>{error}</span>
-                        ) : (
-                            ""
+                        {error && (
+                            <Warning title="Error" className="mb-4">
+                                {error}
+                            </Warning>
                         )}
                         <HCaptcha
                             sitekey={process.env["HCAPTCHA.SITEKEY"] ?? ""}

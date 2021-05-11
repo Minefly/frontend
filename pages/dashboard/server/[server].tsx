@@ -1,7 +1,7 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { FC } from "react";
 import DashboardLayout from "../../../components/dashboard-layout";
-import imgs from "../../../styles/index.module.css";
 
 const Server: FC = () => {
     const router = useRouter();
@@ -9,8 +9,12 @@ const Server: FC = () => {
     const { server: serverName } = router.query;
 
     return (
-        <DashboardLayout>
-            {/* <div className="container grid grid-cols-12 gap-4 my-6">
+        <>
+            <Head>
+                <title>Managing {serverName} | Minefly</title>
+            </Head>
+            <DashboardLayout>
+                {/* <div className="container grid grid-cols-12 gap-4 my-6">
 				<div className="col-span-12 card text-center relative p-0 overflow-hidden">
 					<div className="p-8">
 						<h1 className="text-lg font-bold">
@@ -37,28 +41,27 @@ const Server: FC = () => {
 					</div>
 				</div>
 			</div> */}
-            <div
-                className={
-                    "w-full bg-center bg-no-repeat bg-cover flex justify-center items-center flex-col mb-8 py-10 " +
-                    imgs["img-1"]
-                }
-            >
-                <h1 className="text-3xl font-bold my-1">{serverName}</h1>
-                <div className="chip bg-green-600 text-white my-1 shadow-md">
-                    Online - 5/20 players
+                <div
+                    className={
+                        "w-full bg-center bg-no-repeat bg-cover flex justify-center items-center flex-col mb-8 py-10 "
+                    }
+                >
+                    <h1 className="text-3xl font-bold my-1">{serverName}</h1>
+                    <div className="chip bg-green-600 text-white my-1 shadow-md">
+                        Online - 5/20 players
+                    </div>
+                    <div className="flex my-3">
+                        <button className="btn btn-outlined mx-2 hover:bg-primary-600 hover:text-white hover:border-primary-600 focus:ring-0">
+                            Restart
+                        </button>
+                        <button className="btn btn-filled mx-2 hover:bg-secondary-600 hover:text-white focus:ring-0">
+                            Shut down
+                        </button>
+                    </div>
                 </div>
-                <div className="flex my-3">
-                    <button className="btn btn-outlined mx-2 hover:bg-primary-600 hover:text-white hover:border-primary-600 focus:ring-0">
-                        Restart
-                    </button>
-                    <button className="btn btn-filled mx-2 hover:bg-secondary-600 hover:text-white focus:ring-0">
-                        Shut down
-                    </button>
-                </div>
-            </div>
-            <div className="container my-8">
-                <div className="card text-right">
-                    {/* <div className="-mx-2">
+                <div className="container my-8">
+                    <div className="card text-right">
+                        {/* <div className="-mx-2">
 						<button className="btn btn-filled btn--primary mx-2">
 							Restart
 						</button>
@@ -66,9 +69,10 @@ const Server: FC = () => {
 							Shut down
 						</button>
 					</div> */}
+                    </div>
                 </div>
-            </div>
-        </DashboardLayout>
+            </DashboardLayout>
+        </>
     );
 };
 

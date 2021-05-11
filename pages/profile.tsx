@@ -50,82 +50,93 @@ export default function profile() {
                             </Link>
                         </div>
                     </div>
-                    <div className="lg:ml-10 mt-10 lg:mt-0 card w-full">
-                        <form className="grid grid-cols-2 w-full gap-8">
-                            <label className="col-span-2 md:col-span-1">
-                                Email
-                                <input
-                                    type="email"
-                                    className="input block w-full"
-                                />
-                            </label>
-                            <label className="col-span-2 md:col-span-1">
-                                Phone Number
-                                <input
-                                    type="tel"
-                                    className="input block w-full"
-                                />
-                            </label>
-                            <label className="col-span-2 md:col-span-1">
-                                Password
-                                <input
-                                    type="password"
-                                    className="input block w-full"
-                                />
-                            </label>
-                            <div>
-                                &nbsp;
+                    <div className="lg:ml-10 mt-10 lg:mt-0 w-full">
+                        <div className="card w-full">
+                            <form className="grid grid-cols-2 w-full gap-8">
+                                <div>
+                                    <label className="col-span-2 md:col-span-1">
+                                        Email
+                                    </label>
+                                    <input
+                                        type="email"
+                                        className="input block w-full"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="col-span-2 md:col-span-1">
+                                        Phone Number
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        className="input block w-full"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="col-span-2 md:col-span-1">
+                                        Password
+                                    </label>
+                                    <input
+                                        type="password"
+                                        className="input block w-full"
+                                    />
+                                </div>
+                                <div>
+                                    &nbsp;
+                                    <button
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                        }}
+                                        className="btn btn-outlined btn--primary block"
+                                    >
+                                        Enable 2FA
+                                    </button>
+                                </div>
                                 <button
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                    }}
-                                    className="btn btn-outlined btn--primary block"
+                                    type="submit"
+                                    className="col-span-2 btn btn-filled btn--accent"
                                 >
-                                    Enable 2FA
+                                    Submit
                                 </button>
-                            </div>
-                            <button
-                                type="submit"
-                                className="col-span-2 btn btn-filled btn--accent"
-                            >
-                                Submit
-                            </button>
-                        </form>
-                    </div>
-                    <div className="mt-4 card w-full">
-                        <h2 className="text-xl font-bold">Theme</h2>
-                        <div>
-                            <input
-                                type="radio"
-                                name="theme"
-                                checked={theme === "light"}
-                                onChange={() => {
-                                    setTheme("light");
-                                }}
-                            />{" "}
-                            Light
+                            </form>
                         </div>
-                        <div>
-                            <input
-                                type="radio"
-                                name="theme"
-                                checked={theme === "dark"}
-                                onChange={() => {
-                                    setTheme("dark");
-                                }}
-                            />{" "}
-                            Dark
-                        </div>
-                        <div>
-                            <input
-                                type="radio"
-                                name="theme"
-                                checked={theme === "system"}
-                                onChange={() => {
-                                    setTheme("system");
-                                }}
-                            />{" "}
-                            System
+                        <div className="mt-4 card w-full">
+                            <h2 className="text-xl font-bold">Theme</h2>
+                            <label className="block">
+                                <input
+                                    type="radio"
+                                    name="theme"
+                                    checked={theme === "light"}
+                                    onChange={() => {
+                                        setTheme("light");
+                                    }}
+                                    className="radio"
+                                />{" "}
+                                Light
+                            </label>
+                            <label className="block">
+                                <input
+                                    type="radio"
+                                    name="theme"
+                                    checked={theme === "dark"}
+                                    onChange={() => {
+                                        setTheme("dark");
+                                    }}
+                                    className="radio"
+                                />{" "}
+                                Dark
+                            </label>
+                            <label className="block">
+                                <input
+                                    type="radio"
+                                    name="theme"
+                                    checked={theme === "system"}
+                                    onChange={() => {
+                                        setTheme("system");
+                                    }}
+                                    className="radio"
+                                />{" "}
+                                System
+                            </label>
                         </div>
                     </div>
                 </div>

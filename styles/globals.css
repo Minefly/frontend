@@ -90,15 +90,12 @@
     }
 
     .banner-img {
-        @apply absolute z-0 top-0 left-0 bg-cover bg-top xl:bg-center w-screen h-full opacity-0 transform translate-x-full transition-transform duration-700;
-    }
-
-    .banner-img.active {
-        @apply opacity-100 transform translate-x-0;
-    }
-
-    .banner-img.exiting {
-        @apply opacity-100 transform -translate-x-full;
+        @apply absolute z-0 top-0 left-0 bg-cover bg-top xl:bg-center w-screen h-full;
+        background-image: linear-gradient(
+                rgba(0, 23, 238, 0.63),
+                rgba(48, 0, 239, 0.4)
+            ),
+            url("../public/trees.jpg");
     }
 
     .navbar-logo,
@@ -129,6 +126,14 @@
     }
 
     .input {
-        @apply border-none outline-none px-4 py-2 rounded-md shadow-inner text-base dark:bg-gray-700;
+        @apply outline-none px-4 py-2 rounded-md text-base border-gray-300 dark:border-gray-500 focus:border-blue-700 dark:focus:border-gray-800 focus:ring focus:ring-blue-300 dark:focus:ring-blue-500 border dark:bg-gray-700;
+    }
+
+    .checkbox {
+        @apply dark:bg-gray-700 dark:checked:bg-blue-500 border border-gray-300 dark:border-gray-500 checked:border-blue-500 dark:checked:border-blue-500 checked:bg-blue-500 hover:checked:bg-blue-500 dark:hover:checked:bg-blue-500 rounded-sm focus:ring-0 focus:ring-offset-0 dark:hover:bg-gray-600;
+    }
+
+    .radio {
+        @apply dark:bg-gray-700 dark:checked:bg-blue-500 border border-gray-300 dark:border-gray-500 checked:border-blue-500 dark:checked:border-blue-500 checked:bg-blue-500 hover:checked:bg-blue-500 dark:hover:checked:bg-blue-500 rounded-full focus:ring-0 focus:ring-offset-0 dark:hover:bg-gray-600;
     }
 }

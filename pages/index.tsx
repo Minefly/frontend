@@ -1,4 +1,3 @@
-import imgs from "../styles/index.module.css";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import Card from "../components/card";
@@ -8,25 +7,6 @@ import Link from "next/link";
 import { API_URL } from "./constants";
 
 const Home = () => {
-    const nOfImages = 3;
-
-    const [currentImg, setCurrentImg] = useState(1);
-
-    const [isMoving, setIsMoving] = useState(false);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIsMoving(true);
-            if (currentImg < nOfImages) setCurrentImg(currentImg + 1);
-            else setCurrentImg(1);
-            setTimeout(() => {
-                setIsMoving(false);
-            }, 700);
-        }, 10000);
-
-        return () => clearInterval(interval);
-    });
-
     return (
         <>
             <Head>
@@ -35,21 +15,7 @@ const Home = () => {
             <NavBar contained nopadding />
             <div className="banner w-full relative h-200">
                 <div className="banner-img-container">
-                    <div
-                        className={`banner-img ${imgs["img-1"]} ${
-                            currentImg === 1 ? "active" : ""
-                        } ${currentImg === 2 && isMoving ? "exiting" : ""}`}
-                    />
-                    <div
-                        className={`banner-img ${imgs["img-2"]} ${
-                            currentImg === 2 ? "active" : ""
-                        } ${currentImg === 3 && isMoving ? "exiting" : ""}`}
-                    />
-                    <div
-                        className={`banner-img ${imgs["img-3"]} ${
-                            currentImg === 3 ? "active" : ""
-                        } ${currentImg === 1 && isMoving ? "exiting" : ""}`}
-                    />
+                    <div className={`banner-img`} />
                 </div>
                 <div className="text-center lg:text-left text-gray-200 font-extrabold absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 container">
                     <h1 className="text-2xl sm:text-4xl xl:text-7xl my-4 text-primary-50">

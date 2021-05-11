@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
+import Warning from "../components/warning";
 import Footer from "../components/footer";
 import NavBar from "../components/navbar";
 import { API_URL } from "./constants";
@@ -60,10 +61,10 @@ const VerificationForm = () => {
                             required
                         />
 
-                        {error != null ? (
-                            <span /**TODO: Needs to be styled */>{error}</span>
-                        ) : (
-                            ""
+                        {error && (
+                            <Warning title="Error" className="mb-4">
+                                {error}
+                            </Warning>
                         )}
                         <button
                             type="submit"

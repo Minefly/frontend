@@ -1,4 +1,3 @@
-import { useTheme } from "next-themes";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { Dispatch, FC, SetStateAction, useEffect, useState } from "react";

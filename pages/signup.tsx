@@ -8,6 +8,7 @@ import { API_URL } from "./constants";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { InferGetStaticPropsType } from "next";
+import Warning from "../components/warning";
 
 type Passes = string[];
 
@@ -125,10 +126,10 @@ const SignupForm = ({
                             By signing up you agree to the Privacy Policy and
                             the Terms of Service
                         </p>
-                        {error != null ? (
-                            <span /**TODO: Needs to be styled */>{error}</span>
-                        ) : (
-                            ""
+                        {error && (
+                            <Warning title="Error" className="mb-4">
+                                {error}
+                            </Warning>
                         )}
                         <HCaptcha
                             sitekey={process.env["HCAPTCHA.SITEKEY"] ?? ""}

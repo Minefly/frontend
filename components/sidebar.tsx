@@ -10,6 +10,8 @@ import {
     LoginIcon,
     ShoppingBagIcon,
 } from "@heroicons/react/outline";
+import axios from "axios";
+import { API_URL } from "../pages/constants";
 
 interface SidebarProps {
     sidebarOpen?: [boolean, Dispatch<SetStateAction<boolean>>];
@@ -36,6 +38,7 @@ const Sidebar: SidebarComponent = (props) => {
     const router = useRouter();
 
     const loggedIn = useAuthStore((store) => store.loggedIn);
+    const logOut = useAuthStore(store => store.logOut);
 
     const [hidden, setHidden] = hiddenState || useState<boolean>(true);
     const [sidebarOpen, setSidebarOpen] =
@@ -48,7 +51,21 @@ const Sidebar: SidebarComponent = (props) => {
             }, 150);
         else setHidden(false);
         setTimeout(() => setSidebarOpen(!sidebarOpen), 0);
-    };
+  };
+  
+  async function logMeOut() {
+          logOut();
+    //TODO: Put logOut after the request
+    try {
+      const resp = await axios.post(API_URL + "/auth/logout");
+
+    router.replace("/login")
+    } catch (err) {
+      alert("An error was encountered while logging you out!");
+      //TODO: Make this look better (maybe using https://discord.com/channels/806151157395226644/818600619958730763/841700698597228634)
+    }
+
+  }
 
     return (
         <>
@@ -178,6 +195,18 @@ const Sidebar: SidebarComponent = (props) => {
                                             Account Settings
                                         </a>
                                     </Link>
+                    </li>
+                                                    <li>
+                                    <button onClick={logMeOut}>
+                                        <a
+                                            className={
+                                                "rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left select-none"
+                                            }
+                                        >
+                                            <AdjustmentsIcon />
+                                            Log out
+                                        </a>
+                                    </button>
                                 </li>
                             </ul>
                         )}

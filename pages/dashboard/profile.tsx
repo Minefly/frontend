@@ -3,10 +3,18 @@ import NavBar from "../../components/navbar";
 import Link from "next/link";
 import Head from "next/head";
 import { useAuthStore } from "../../store/auth";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import four01 from "../401";
+import axios from "axios";
+import { API_URL } from "../constants";
+
+type Enable2faResp = {
+  qr: string, // the qr that needs to be shown so that the 2fa app can make the stuff
+  secret: string, // The secret, needs to be shown if the qr isn't recognized
+  backup_codes: number[] // The backup codes, also need to be shown
+}
 
 export default function profile() {
   const [isLoggedIn, id] = useAuthStore((state => [state.loggedIn, state.userId]));
@@ -15,6 +23,18 @@ export default function profile() {
 
     const { theme, setTheme } = useTheme();
 
+  async function enable2fa(event: FormEvent) {
+    event.preventDefault();
+    try {
+      const resp = await axios.post(API_URL + "/auth/enable-2fa", {
+      }, { withCredentials: true });
+      const body = resp.data as Enable2faResp;
+    } catch (exception) {
+      //TODO: Send a message about the issue
+    }
+    
+  }
+  
     if (isLoggedIn == false) {
       return four01();
     } else {
@@ -58,9 +78,7 @@ export default function profile() {
                                 <div>
                                     &nbsp;
                                     <button
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                        }}
+                                        onClick={enable2fa}
                                         className="btn btn-outlined btn--primary block"
                                     >
                                         Enable 2FA

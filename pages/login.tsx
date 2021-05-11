@@ -23,7 +23,6 @@ const login = () => {
 
     async function handleSubmit(event: FormEvent) {
         event.preventDefault();
-        console.log(process.env.NODE_ENV, setToken("10"), token);
         if (token == null && process.env.NODE_ENV == "production") {
             setError("Please complete the captcha!");
             return;

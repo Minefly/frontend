@@ -8,7 +8,7 @@ enum UserType {
 
 type AuthState = {
   loggedIn: boolean;
-  setLoggedIn: (loggedIn: boolean) => void;
+  logOut: () => void;
   expiresAt?: Date;
   userId?: string;
   userType?: UserType;
@@ -25,7 +25,7 @@ export const useAuthStore = create<AuthState>(
   persist(
     (set) => ({
       loggedIn: false,
-      setLoggedIn: (loggedIn: boolean) => set({ loggedIn }),
+      logOut: () => set({ loggedIn: false }, true),
       setLoginData: (data: LoginResult) =>
         set({
           loggedIn: true,

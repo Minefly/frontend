@@ -1,30 +1,22 @@
-import Footer from "../components/footer";
-import NavBar from "../components/navbar";
+import Footer from "../../components/footer";
+import NavBar from "../../components/navbar";
 import Link from "next/link";
 import Head from "next/head";
-import { useAuthStore } from "../store/auth";
+import { useAuthStore } from "../../store/auth";
 import { useState } from "react";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
+import four01 from "../401";
 
 export default function profile() {
-    const isLoggedIn = useAuthStore((state) => state.loggedIn);
-    const uuid = "b597aac0011f41d0bab1edc1b809016e"; //replace with real uuid
-    const name = "Imposter"; //replace with real name
-
-    const [passOpen, setPassOpen] = useState(false);
+  const [isLoggedIn, id] = useAuthStore((state => [state.loggedIn, state.userId]));
+    const uuid = id; //replace with real uuid
+  const router = useRouter();
 
     const { theme, setTheme } = useTheme();
 
-    if (!isLoggedIn == false) {
-        //remove the "!" when ready for prod
-        return (
-            //if theres a js way to do this, pls do it
-            <>
-                <Head>
-                    <meta httpEquiv="Refresh" content="0; URL=/401" />
-                </Head>
-            </>
-        );
+    if (isLoggedIn == false) {
+      return four01();
     } else {
         return (
             <>
@@ -41,13 +33,9 @@ export default function profile() {
                         />
                         <div className="mt-6 md:mt-0 md:ml-12 lg:mt-6 lg:ml-0">
                             <h1 className="text-2xl font-bold">
-                                {name}'s Account
+                                Your Account
                             </h1>
-                            <Link href="/">
-                                <a className="btn btn-filled btn--accent mt-4">
-                                    Dashboard
-                                </a>
-                            </Link>
+
                         </div>
                     </div>
                     <div className="lg:ml-10 mt-10 lg:mt-0 w-full">
@@ -57,13 +45,6 @@ export default function profile() {
                                     <label>Email</label>
                                     <input
                                         type="email"
-                                        className="input block w-full"
-                                    />
-                                </div>
-                                <div className="col-span-2 md:col-span-1">
-                                    <label>Phone Number</label>
-                                    <input
-                                        type="tel"
                                         className="input block w-full"
                                     />
                                 </div>

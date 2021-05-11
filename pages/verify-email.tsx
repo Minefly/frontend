@@ -29,10 +29,10 @@ const VerificationForm = () => {
             body: verCode.current!!.value,
         });
         if (!resp.ok) {
-            setError(`${resp.statusText} ${await resp.text()}`);
+            setError(`${resp.statusText}: ${await resp.text()}`);
             return;
         } else {
-            //TODO: Style everything and congratulate them for creating an account
+            //TODO: Congratulate the user for creating an account
         }
     }
     return (

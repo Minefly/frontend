@@ -17,6 +17,7 @@ const login = () => {
     const [token, setToken] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
     const rememberMe = useRef<HTMLInputElement>(null);
+            let setLoginData = useAuthStore((state) => state.setLoginData);
 
     const router = useRouter();
 
@@ -38,10 +39,9 @@ const login = () => {
         });
 
         if (resp.status != 200) {
-            setError(`${resp.statusText} ${resp.data}`);
+            setError(`${resp.statusText}: ${resp.data}`);
             return;
         } else {
-            let setLoginData = useAuthStore((state) => state.setLoginData);
             const body: LoginResult = resp.data;
             setLoginData(body);
             router.push("/dashboard");

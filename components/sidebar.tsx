@@ -165,12 +165,12 @@ const Sidebar: SidebarComponent = (props) => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/account/settings">
+                                    <Link href="/dashboard/profile">
                                         <a
                                             className={
                                                 "rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left select-none" +
                                                 (router.asPath ===
-                                                    "/account/settings" &&
+                                                    "/dashboard/profile" &&
                                                     "bg-gray-200 dark:bg-gray-800")
                                             }
                                         >

@@ -59,11 +59,11 @@ const SignupForm = ({
             body: JSON.stringify(signupObj),
         });
         if (!resp.ok) {
-            setError(`${resp.statusText} ${await resp.text()}`);
+            setError(`${resp.statusText}: ${await resp.text()}`);
             return;
         } else {
             router.push("/verify-email");
-            //TODO: Send them a message saying they need to verify the mail
+            //TODO: Send an user a message saying they need to verify the mail
         }
     }
     function checkPassword(event: KeyboardEvent) {

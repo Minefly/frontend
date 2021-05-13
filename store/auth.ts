@@ -12,7 +12,9 @@ type AuthState = {
   expiresAt?: Date;
   userId?: string;
   userType?: UserType;
+  uses_tfa?: boolean;
   setLoginData: (data: LoginResult) => void;
+  setUsesTfa: (data: boolean) => void;
 };
 
 export type LoginResult = {
@@ -33,6 +35,8 @@ export const useAuthStore = create<AuthState>(
           userType: data.user_type as UserType,
           userId: data.id,
         }),
+      uses_tfa: false,
+      setUsesTfa: (data: boolean) => set({ uses_tfa: data }),
     }),
     {
       name: "auth-storage",

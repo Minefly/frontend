@@ -3,7 +3,7 @@ import NavBar from "../../components/navbar";
 import Link from "next/link";
 import Head from "next/head";
 import { useAuthStore } from "../../store/auth";
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import four01 from "../401";
@@ -20,15 +20,20 @@ export default function profile() {
   const [isLoggedIn, id] = useAuthStore((state => [state.loggedIn, state.userId]));
     const uuid = id; //replace with real uuid
   const router = useRouter();
-
     const { theme, setTheme } = useTheme();
-
+  const [svg, setSvg] = useState<string>();
+  const [recoveryCodes, setRecCodes] = useState<number[]>();
+  const [secret, setSecret] = useState<string>();
   async function enable2fa(event: FormEvent) {
     event.preventDefault();
     try {
       const resp = await axios.post(API_URL + "/auth/enable-2fa", {
       }, { withCredentials: true });
       const body = resp.data as Enable2faResp;
+      console.log(body.qr);
+      setSvg(body.qr);
+      setRecCodes(body.backup_codes);
+      setSecret(body.secret);
     } catch (exception) {
       //TODO: Send a message about the issue
     }
@@ -81,8 +86,11 @@ export default function profile() {
                                         onClick={enable2fa}
                                         className="btn btn-outlined btn--primary block"
                                     >
-                                        Enable 2FA
+                        Enable 2FA
                                     </button>
+                      { svg != undefined ? 
+                        <div><div dangerouslySetInnerHTML={{ __html: svg!! }}></div><p>Recovery codes:<br />{recoveryCodes?.join("\n")}</p><p>Secret: {secret}</p></div> : <></>
+                      }
                                 </div>
                                 <button
                                     type="submit"

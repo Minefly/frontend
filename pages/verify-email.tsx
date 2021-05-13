@@ -39,7 +39,7 @@ const VerificationForm = () => {
         <>
             <div className="relative flex flex-grow justify-center items-center bg-gray-800">
                 <div className="card">
-                    <h2 className="text-lg font-semibold text-center">
+                    <h2  className="text-lg font-semibold text-center">
                         Verify Email
                     </h2>
                     <form

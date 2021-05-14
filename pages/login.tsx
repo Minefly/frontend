@@ -10,9 +10,11 @@ import { LoginResult, useAuthStore } from "../store/auth";
 import { Router, useRouter } from "next/router";
 import Warning from "../components/warning";
 
+//TODO: When the user loads this check if they have 2fa enabled and if so ask them for tfa when they log in
+
 const login = () => {
     const email = useRef<HTMLInputElement>(null);
-    const password = useRef<HTMLInputElement>(null);
+    const password = useRef<HTMLInputElement>(null);  
     const captchaRef = useRef(null);
     const [token, setToken] = useState<string | null>(null);
     const [error, setError] = useState<string | null>(null);
@@ -98,7 +100,7 @@ const login = () => {
                                 name="rname"
                                 className="checkbox mr-2"
                                 ref={rememberMe}
-                            />
+                />
                             Remember me?
                         </label>
                         {error && (

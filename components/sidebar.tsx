@@ -157,7 +157,7 @@ const Sidebar: SidebarComponent = (props) => {
                                             className={
                                                 "rounded-lg hover:underline flex w-full my-2 px-4 py-3 text-left select-none " +
                                                 (router.asPath ===
-                                                    "/dashboard/home" &&
+                                                    "/dashboard" &&
                                                     "bg-gray-200 dark:bg-gray-800")
                                             }
                                         >

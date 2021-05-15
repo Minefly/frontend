@@ -1,7 +1,5 @@
 import Footer from "../../components/footer";
 import NavBar from "../../components/navbar";
-import Link from "next/link";
-import Head from "next/head";
 import { useAuthStore } from "../../store/auth";
 import { FormEvent, useRef, useState } from "react";
 import { useTheme } from "next-themes";
@@ -11,37 +9,50 @@ import axios from "axios";
 import { API_URL } from "../constants";
 
 type Enable2faResp = {
-  qr: string, // the qr that needs to be shown so that the 2fa app can make the stuff
-  secret: string, // The secret, needs to be shown if the qr isn't recognized
-  backup_codes: number[] // The backup codes, also need to be shown
-}
+    qr: string; // the qr that needs to be shown so that the 2fa app can make the stuff
+    secret: string; // The secret, needs to be shown if the qr isn't recognized
+    backup_codes: number[]; // The backup codes, also need to be shown
+};
 
 export default function profile() {
-  const [isLoggedIn, id] = useAuthStore((state => [state.loggedIn, state.userId]));
+    const [isLoggedIn, id] = useAuthStore((state) => [
+        state.loggedIn,
+        state.userId,
+    ]);
     const uuid = id; //replace with real uuid
-  const router = useRouter();
+    const router = useRouter();
     const { theme, setTheme } = useTheme();
-  const [svg, setSvg] = useState<string>();
-  const [recoveryCodes, setRecCodes] = useState<number[]>();
-  const [secret, setSecret] = useState<string>();
-  async function enable2fa(event: FormEvent) {
-    event.preventDefault();
-    try {
-      const resp = await axios.post(API_URL + "/auth/enable-2fa", {
-      }, { withCredentials: true });
-      const body = resp.data as Enable2faResp;
-      console.log(body.qr);
-      setSvg(body.qr);
-      setRecCodes(body.backup_codes);
-      setSecret(body.secret);
-    } catch (exception) {
-      //TODO: Send a message about the issue
+    const [svg, setSvg] = useState<string>();
+    const [recoveryCodes, setRecCodes] = useState<number[]>();
+    const [secret, setSecret] = useState<string>();
+    async function enable2fa(event: FormEvent) {
+        event.preventDefault();
+        try {
+            const resp = await axios.post(
+                API_URL + "/auth/enable-2fa",
+                {},
+                { withCredentials: true }
+            );
+            const body = resp.data as Enable2faResp;
+            console.log(body.qr);
+            setSvg(body.qr);
+            setRecCodes(body.backup_codes);
+            setSecret(body.secret);
+        } catch (exception) {
+            //TODO: Send a message about the issue
+        }
     }
-    
-  }
-  
+
     if (isLoggedIn == false) {
-      return four01();
+        if (typeof window === "undefined") return four01();
+        else
+            router.push({
+                query: {
+                    redirect: "/dashboard/profile",
+                },
+                pathname: "/login",
+            });
+        return <></>;
     } else {
         return (
             <>
@@ -57,10 +68,7 @@ export default function profile() {
                             }
                         />
                         <div className="mt-6 md:mt-0 md:ml-12 lg:mt-6 lg:ml-0">
-                            <h1 className="text-2xl font-bold">
-                                Your Account
-                            </h1>
-
+                            <h1 className="text-2xl font-bold">Your Account</h1>
                         </div>
                     </div>
                     <div className="lg:ml-10 mt-10 lg:mt-0 w-full">
@@ -86,11 +94,25 @@ export default function profile() {
                                         onClick={enable2fa}
                                         className="btn btn-outlined btn--primary block"
                                     >
-                        Enable 2FA
+                                        Enable 2FA
                                     </button>
-                      { svg != undefined ? 
-                        <div><div dangerouslySetInnerHTML={{ __html: svg!! }}></div><p>Recovery codes:<br />{recoveryCodes?.join("\n")}</p><p>Secret: {secret}</p></div> : <></>
-                      }
+                                    {svg != undefined ? (
+                                        <div>
+                                            <div
+                                                dangerouslySetInnerHTML={{
+                                                    __html: svg!!,
+                                                }}
+                                            ></div>
+                                            <p>
+                                                Recovery codes:
+                                                <br />
+                                                {recoveryCodes?.join("\n")}
+                                            </p>
+                                            <p>Secret: {secret}</p>
+                                        </div>
+                                    ) : (
+                                        <></>
+                                    )}
                                 </div>
                                 <button
                                     type="submit"

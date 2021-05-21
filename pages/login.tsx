@@ -6,19 +6,18 @@ import { FormEvent, useRef, useState } from "react";
 import { API_URL } from "./constants";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import axios from "axios";
-import { LoginResult, useAuthStore } from "../store/auth";
+import { LoginResult, useAuthStore, UserType } from "../store/auth";
 import { Router, useRouter } from "next/router";
 import Warning from "../components/warning";
-
 //TODO: When the user loads this check if they have 2fa enabled and if so ask them for tfa when they log in
 
 const login = () => {
-    const [email, setEmail] = useState<string>();
-    const [password, setPassword] = useState<string>();
-    const [token, setToken] = useState<string>();
-    const [error, setError] = useState<string>();
-    const [rememberMe, setRememberMe] = useState<boolean>();
-  let setLoginData = useAuthStore((state) => state.setLoginData);
+  const [email, setEmail] = useState<string>();
+  const [password, setPassword] = useState<string>();
+  const [token, setToken] = useState<string>();
+  const [error, setError] = useState<string>();
+  const [rememberMe, setRememberMe] = useState<boolean>();
+  let [setLoginData, userType] = useAuthStore((state) => [state.setLoginData, state.userType]);
     const [tfaCode, setTfaCode] = useState<number>();
     const router = useRouter();
     let [tfaForm, showTfaForm] = useState<boolean>(false);
@@ -67,10 +66,12 @@ const login = () => {
                 return;
             } else {
                 const body: LoginResult = await resp.json();
-                setLoginData(body);
-                let pathToPush = router.query.redirect || "/dashboard";
-                if (Array.isArray(pathToPush)) pathToPush = "/dashboard";
-                router.push(pathToPush);
+              setLoginData(body);
+              if (userType == UserType.Admin) {
+                router.push("/admin/dashboard")
+              } else {
+                router.push("/dashboard");
+              }
             }
         }
     }

@@ -1,7 +1,7 @@
 import create from "zustand";
 import { persist } from "zustand/middleware";
 
-enum UserType {
+export enum UserType {
   User = 1,
   Admin = 2,
 }
@@ -26,7 +26,8 @@ export type LoginResult = {
 export const useAuthStore = create<AuthState>(
   persist(
     (set) => ({
-      loggedIn: false,
+      loggedIn: true,
+      userType: UserType.Admin,
       logOut: () => set({ loggedIn: false }, true),
       setLoginData: (data: LoginResult) =>
         set({

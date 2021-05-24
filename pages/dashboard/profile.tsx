@@ -1,12 +1,13 @@
 import Footer from "../../components/footer";
 import NavBar from "../../components/navbar";
-import { useAuthStore } from "../../store/auth";
+import { useAuthStore, UserType } from "../../store/auth";
 import { FormEvent, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import four01 from "../401";
 import axios from "axios";
 import { API_URL } from "../constants";
+import withAuthRedirect from "../../hocs/withAuth";
 
 type Enable2faResp = {
     qr: string; // the qr that needs to be shown so that the 2fa app can make the stuff
@@ -14,9 +15,8 @@ type Enable2faResp = {
     backup_codes: number[]; // The backup codes, also need to be shown
 };
 
-export default function profile() {
-    const [isLoggedIn, id] = useAuthStore((state) => [
-        state.loggedIn,
+const Profile =()  => {
+    const [id] = useAuthStore((state) => [
         state.userId,
     ]);
     const uuid = id; //replace with real uuid
@@ -41,19 +41,8 @@ export default function profile() {
         } catch (exception) {
             //TODO: Send a message about the issue
         }
-    }
 
-    if (isLoggedIn == false) {
-        if (typeof window === "undefined") return four01();
-        else
-            router.push({
-                query: {
-                    redirect: "/dashboard/profile",
-                },
-                pathname: "/login",
-            });
-        return <></>;
-    } else {
+    }
         return (
             <>
                 <NavBar contained />
@@ -166,5 +155,8 @@ export default function profile() {
                 <Footer />
             </>
         );
-    }
+    
 }
+
+
+export default withAuthRedirect(Profile, UserType.User, "/401")

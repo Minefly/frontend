@@ -2,6 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { FC } from "react";
 import DashboardLayout from "../../components/dashboard-layout";
+import withAuthRedirect from "../../hocs/withAuth";
+import { UserType } from "../../store/auth";
 
 const DashboardHome: FC = () => {
     return (
@@ -33,4 +35,4 @@ const DashboardHome: FC = () => {
     );
 };
 
-export default DashboardHome;
+export default withAuthRedirect(DashboardHome, UserType.User, "/401");

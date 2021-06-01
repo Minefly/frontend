@@ -54,15 +54,14 @@ const Sidebar: SidebarComponent = (props) => {
     };
 
     async function logMeOut() {
-        logOut();
-        //TODO: Put logOut after the request
         try {
-            const resp = await axios.post(API_URL + "/auth/logout");
-
+            const resp = await axios.post(API_URL + "/auth/logout", null, {withCredentials: true});
+            logOut();
             router.replace("/login");
+
         } catch (err) {
-            alert("An error was encountered while logging you out!");
             //TODO: Make this look better (maybe using https://discord.com/channels/806151157395226644/818600619958730763/841700698597228634)
+            alert("An error was encountered while logging you out!");
         }
     }
 

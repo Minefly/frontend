@@ -36,7 +36,6 @@ const login = () => {
         }
         const json = await userData.json();
       const tfa_enabled = json.tfa_enabled as boolean;
-      console.log(tfa_enabled )
         if (tfa_enabled && tfaCode == null) {
             showTfaForm(true);
         } else {
@@ -53,7 +52,6 @@ const login = () => {
                 token: process.env.NODE_ENV == "production" ? token!! : "e",
                 tfa_token: null,
           };
-          console.log(loginObj)
             if (tfaCode != null) loginObj.tfa_token = tfaCode;
             const resp = await fetch(API_URL + "/auth/login", {
                 body: JSON.stringify(loginObj),

@@ -28,6 +28,7 @@ func main() {
 		Compress:        true,
 		AcceptByteRange: true,
 		PathNotFound: func(rc *atreugo.RequestCtx) error {
+			// TODO: Send the 404 file
 			rc.NotFound()
 			return nil
 		},

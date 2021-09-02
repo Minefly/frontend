@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"path/filepath"
 
 	"github.com/savsgio/atreugo/v11"
 )
@@ -16,8 +17,13 @@ func main() {
 	}
 	server := atreugo.New(config)
 
+	cwd, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+
 	server.StaticCustom("", &atreugo.StaticFS{
-		Root:            "./out",
+		Root:            filepath.Join(cwd, "out"),
 		IndexNames:      []string{"index.html"},
 		Compress:        true,
 		AcceptByteRange: true,

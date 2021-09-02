@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+import withPWA from "next-pwa";
+module.exports = withPWA({
   reactStrictMode: true,
-};
+});

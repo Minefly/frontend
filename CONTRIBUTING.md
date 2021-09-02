@@ -1,1 +1,0 @@
-By submitting pull requests to this repository, you waive any rights or ownership of the included contents to Minefly.

@@ -2,13 +2,8 @@
 
 # dependencies
 /node_modules
-/.yarn/*
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
+/.pnp
+.pnp.js
 
 # testing
 /coverage
@@ -37,9 +32,3 @@ yarn-error.log*
 
 # vercel
 .vercel
-
-# if running on npm
-package-lock.json
-
-
-pages/constants.ts

@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "^3.2.2",
+    "@types/node": "^16.7.10",
     "@types/react": "17.0.19",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2",

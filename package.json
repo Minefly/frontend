@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@capacitor/core": "^3.2.2",
+    "@svgr/webpack": "^5.5.0",
     "autoprefixer": "^10.3.3",
     "next": "11.1.2",
     "next-pwa": "^5.3.1",

@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
-import withPWA from "next-pwa";
-import mdx from "@next/mdx";
 
-const withMdx = mdx({
+const withPWA = require("next-pwa");
+
+const withMdx = require("@next/mdx")({
   extension: /\.mdx?$/,
 });
 
@@ -14,9 +14,8 @@ module.exports = withPWA(
       disable: process.env.NODE_ENV === "development",
       register: true,
     },
-    future: {
-      webpack5: true,
-    },
+    webpack5: true,
+
     pageExtensions: ["tsx", "mdx", "md"],
     webpack(config) {
       config.module.rules.push({

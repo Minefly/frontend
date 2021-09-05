@@ -6,6 +6,7 @@ import Head from 'next/head'
 
 import RulesMDX from '../markdown/rules.mdx'
 import { FC } from 'react';
+import RuleStyles from '../styles/rules.module.css'
 
 
 interface Components extends MDXProviderComponents {
@@ -27,7 +28,7 @@ const components: Components = {
                         className
                     }
                 />
-                {nodivider || <div className="divider h-1 my-4" />}
+            {nodivider || <div className={RuleStyles.divider+" h-1 my-4"}/>}
             </>
         );
     },
@@ -46,7 +47,7 @@ const components: Components = {
                         className
                     }
                 />
-                {nodivider || <div className="divider my-4" />}
+                {nodivider || <div className={RuleStyles.divider + " my-4"} />}
             </>
         );
     },
@@ -65,7 +66,7 @@ const components: Components = {
                         className
                     }
                 />
-                {nodivider || <div className="divider my-4" />}
+                {nodivider || <div className={RuleStyles.divider + " my-4"} />}
             </>
         );
     },
@@ -73,7 +74,7 @@ const components: Components = {
     p(props) {
         const className = props.className || "";
 
-        return <p {...props} className={"paragraph " + className} />;
+        return <p {...props} className={RuleStyles.paragraph + className} />;
     },
 
     a(props) {
@@ -82,7 +83,7 @@ const components: Components = {
         return (
             <a
                 {...props}
-                className={"anchor " + className}
+                className={RuleStyles.anchor + className}
                 target={props.href?.match(/^https?:\/\//) ? "_blank" : ""}
             />
         );
@@ -113,7 +114,7 @@ const components: Components = {
     li(props) {
         const className = props.className || "";
 
-        return <li {...props} className={"paragraph " + className} />;
+        return <li {...props} className={RuleStyles.paragraph + className} />;
     },
 
     title(props) {

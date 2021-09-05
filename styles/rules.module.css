@@ -1,0 +1,11 @@
+.divider {
+  @apply h-0.5 bg-gray-300;
+}
+
+.paragraph {
+  @apply mb-4;
+}
+
+.anchor {
+  @apply text-blue-500 hover:underline;
+}

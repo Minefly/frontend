@@ -6,7 +6,7 @@ import Head from 'next/head'
 
 import RulesMDX from '../markdown/rules.mdx'
 import { FC } from 'react';
-import RuleStyles from '../styles/rules.module.css'
+import RuleStyles from "../styles/rules.module.css"
 
 
 interface Components extends MDXProviderComponents {

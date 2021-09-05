@@ -2,10 +2,10 @@
 import Document, { DocumentProps, Main, NextScript, Html, Head } from 'next/document'
 
 export default class MineflyDocument extends Document {
-    constructor(props: DocumentProps) {
-        super(props);
+  constructor(props: DocumentProps) {
+    super(props);
   }
-  // TODO: Fill the meta tags with values (and see if we actually need all those)
+
   render() {
     return (
       <Html lang="en">
@@ -27,7 +27,6 @@ export default class MineflyDocument extends Document {
                                   rel="shortcut icon"
                                   href="/minefly-rocket-dynamic.svg"
                               />
-              
           <meta name='twitter:card' content='summary' />
           <meta name='twitter:url' content='https://minefly.org' />
           <meta name='twitter:title' content='Minefly' />

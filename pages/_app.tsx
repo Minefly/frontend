@@ -1,16 +1,14 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { MDXProvider, MDXProviderComponents } from '@mdx-js/react'
-import  Head  from 'next/head';
-import { FC } from 'react';
-
-    import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from 'next-themes'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     // The theme provider is used for easily managing the theme
     <ThemeProvider attribute="class">
-      <Component {...pageProps} />
+      <div className="min-h-screen w-full dark:bg-gray-800 dark:text-gray-200 leading-relaxed flex flex-col">
+        <Component {...pageProps} />
+      </div>
       </ThemeProvider>)
 }
 export default MyApp

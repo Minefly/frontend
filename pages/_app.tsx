@@ -1,6 +1,6 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
-import { ThemeProvider } from 'next-themes'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { ThemeProvider } from "next-themes";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -9,6 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <div className="min-h-screen w-full dark:bg-gray-800 dark:text-gray-200 leading-relaxed flex flex-col">
         <Component {...pageProps} />
       </div>
-      </ThemeProvider>)
+    </ThemeProvider>
+  );
 }
-export default MyApp
+export default MyApp;

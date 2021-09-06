@@ -4,7 +4,7 @@ import {MDXProvider, MDXProviderComponents} from '@mdx-js/react'
 
 import Head from 'next/head'
 
-import RulesMDX from '../markdown/rules.mdx'
+import RulesMD from '../markdown/rules.md'
 import { FC } from 'react';
 import RuleStyles from "../styles/rules.module.css"
 
@@ -130,11 +130,17 @@ const components: Components = {
 
 
 const Home: NextPage = () => {
-  return (
-        <MDXProvider components={components}>
-      <RulesMDX />
+  return <>
+          <Head>
+        <title>Rules | Minefly</title>
+      </Head>
+    <MDXProvider components={components}>
+
+      <div className="container text-left mt-4">
+        <RulesMD />
+      </div>
     </MDXProvider>
-  )
+  </>
 }
 
 export default Home

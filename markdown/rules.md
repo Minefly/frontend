@@ -1,6 +1,3 @@
-<title>Rules | Minefly</title>
-<div className="container text-left mt-4">
-
 # Minefly Rules
 
 By using the Minefly services you agree to follow Minefly's Terms of
@@ -53,5 +50,3 @@ anything you've contributed to, related to the platform.
    Minefly Discord.
 4. Refrain from disturbing others in voice channels. Voice changers
    are only allowed if everyone in the channel agrees to them.
-
-</div>

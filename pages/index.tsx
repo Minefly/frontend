@@ -3,6 +3,7 @@ import Head from "next/head";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import HomeStyles from "../styles/home.module.css";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -19,6 +20,11 @@ const Home: NextPage = () => {
             <br />
             Minecraft server hosting
           </h1>
+          <Link href="/dashboard">
+            <a className="btn btn-big btn-outlined w-max select-none">
+              Get started
+            </a>
+          </Link>
         </div>
       </div>
       {/*

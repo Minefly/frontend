@@ -9,6 +9,6 @@
 
 .banner-text {
   @apply text-primary-50 my-4;
-  font-size: min(3rem, 15vw);
+  font-size: max(3rem, 5vw);
   line-height: 1;
 }

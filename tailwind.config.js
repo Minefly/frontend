@@ -18,6 +18,9 @@ module.exports = {
         "3/5": "60%",
         "4/5": "80%",
       },
+      height: {
+        200: "50rem",
+      },
     },
     fontFamily: {
       sans: ["Inter", "Roboto", "ui-sans-serif", "system-ui", "sans-serif"],

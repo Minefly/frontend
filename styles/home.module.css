@@ -1,0 +1,14 @@
+.banner-img {
+  @apply absolute z-0 top-0 left-0 bg-cover bg-top xl:bg-center w-full h-full;
+  background-image: linear-gradient(
+      rgba(0, 23, 238, 0.63),
+      rgba(48, 0, 239, 0.4)
+    ),
+    url("../public/trees.jpg");
+}
+
+.banner-text {
+  @apply text-primary-50 my-4;
+  font-size: min(3rem, 15vw);
+  line-height: 1;
+}

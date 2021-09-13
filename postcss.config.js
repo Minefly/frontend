@@ -1,19 +1,17 @@
-module.exports = {
+const PostcssConfig = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
     // Support for nested variables
     "postcss-nested": {},
     // Support for next css features
-    "postcss-cssnext": {},
-    // Responsive typography
-    // Shorthand positioning syntax (not needed)
-    // More easing functions
-    // Mode pseudo selectors
-    "rucksack-css": {},
-    // Css minifier
-    cssnano: {},
+    "postcss-preset-env": {},
     // Modifying svgs from css
     "postcss-inline-svg": {},
   },
 };
+
+if (process.env.NODE_ENV == "production") {
+  PostcssConfig.plugins.cssnano = {};
+}
+module.exports = PostcssConfig;

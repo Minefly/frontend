@@ -27,14 +27,6 @@ const Home: NextPage = () => {
           </Link>
         </div>
       </div>
-      {/*
-      <main>
-        <section>
-          All users have access to free Minecraft servers, no credit card or
-          payment required.
-        </section>
-      </main>
-      */}
       <Footer />
     </>
   );

@@ -8,7 +8,18 @@
 }
 
 .banner-text {
-  @apply text-primary-50 my-4;
-  font-size: max(3rem, 5vw);
+  font-size: clamp(2.5rem, 6vw, 6vw);
   line-height: 1;
+  @apply text-primary-50 my-4;
+}
+
+.banner-data {
+  @apply text-center sm:text-left;
+  padding-top: 15rem;
+  padding-left: min(10rem, 8vw);
+}
+
+.home-navbar {
+  @apply fixed z-10 my-2 left-0 right-0 box-content;
+  padding-right: min(10rem, 8vw);
 }

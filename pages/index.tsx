@@ -11,10 +11,12 @@ const Home: NextPage = () => {
       <Head>
         <title>Home | Minefly</title>
       </Head>
-      <Navbar />
+      <div className={HomeStyles["home-navbar"]}>
+        <Navbar />
+      </div>
       <div className="banner w-full relative h-screen">
         <div className={HomeStyles["banner-img"]}></div>
-        <div className="absolute z-10 top-2/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 xl:-translate-y-0 text-center md:text-left md:left-2/5 font-extrabold">
+        <div className={`absolute font-extrabold ${HomeStyles["banner-data"]}`}>
           <h1 className={HomeStyles["banner-text"]}>
             Free, community-first
             <br />

@@ -23,7 +23,7 @@ func main() {
 	}
 
 	server.StaticCustom("", &atreugo.StaticFS{
-		Root:            filepath.Join(cwd, "out"),
+		Root:            filepath.Join(cwd, "build"),
 		IndexNames:      []string{"index.html"},
 		Compress:        true,
 		AcceptByteRange: true,

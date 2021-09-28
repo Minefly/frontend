@@ -16,7 +16,10 @@ const config = {
 		}),
 		router: true,
 		ssr: false,
-		trailingSlash: 'never'
+		trailingSlash: 'never',
+		files: {
+			serviceWorker: 'src/service-worker.ts'
+		}
 	}
 };
 

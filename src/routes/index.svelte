@@ -5,8 +5,3 @@
 <svelte:head>
 	<title>Minefly | Home</title>
 </svelte:head>
-
-
-<style>
-
-</style>
